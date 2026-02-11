@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Remember — Your AI Agent's Memory",
-  description: "A deterministic second-brain plugin for Claude Code. Captures decisions, ideas, and context automatically into local Markdown files.",
-  keywords: ["claude code", "second brain", "AI memory", "obsidian", "markdown", "plugin"],
+  title: "Remember — Your AI-Powered Second Brain",
+  description: "Extract knowledge from every Claude Code session—past and present. Automatically organized. Learns your patterns. Query for context across all your work. Zero manual organizing.",
+  keywords: ["claude code", "second brain", "AI memory", "obsidian", "markdown", "plugin", "PARA", "Zettelkasten", "knowledge management", "PKM", "session processing"],
   openGraph: {
-    title: "Remember — Your AI Agent's Memory",
-    description: "A deterministic second-brain plugin for Claude Code.",
+    title: "Remember — Your AI-Powered Second Brain",
+    description: "Extract knowledge from Claude Code sessions. Auto-organized, adaptive, queryable. Local-first and open source.",
     type: "website",
   },
 };

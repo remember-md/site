@@ -7,23 +7,23 @@ const steps = [
   {
     number: "01",
     icon: Terminal,
-    title: "Install the plugin",
-    description: "One command sets up the Claude Code hook. It watches for trigger phrases like 'remember this' or 'decision:'.",
-    code: `claude hooks add \\\n  post_tool_use \\\n  "remember-capture" \\\n  "npx remember-md@latest capture"`,
+    title: "Install & Initialize",
+    description: "Clone the plugin and run /brain:init to create your PARA structure. Persona.md starts learning from session one.",
+    code: `git clone https://github.com/remember-md/remember.git \\\n  ~/.claude/plugins/remember\n\n# In Claude Code:\n/brain:init`,
   },
   {
     number: "02",
     icon: Workflow,
-    title: "Work normally",
-    description: "Keep using Claude Code as you always do. When you make decisions or have insights, just mention them naturally.",
-    code: `> "Remember: we're using Postgres\n   for auth because it supports\n   row-level security out of the box"`,
+    title: "Process Past Sessions",
+    description: "Extract knowledge from old Claude sessions in bulk. Runs retroactively—your entire history becomes queryable.",
+    code: `# Process unprocessed sessions:\n/brain:process\n\n# Result: Projects, People, Notes,\n# Journal entries auto-created from\n# past transcripts`,
   },
   {
     number: "03",
     icon: BrainCircuit,
-    title: "Your second brain builds itself",
-    description: "Decisions, ideas, and context are automatically captured into organized Markdown files with wikilinks.",
-    code: `second-brain/\n├── Decisions/\n│   └── auth-database-choice.md\n├── Projects/\n│   └── auth-service.md\n└── Journal/\n    └── 2025-01-15.md`,
+    title: "Capture Live & Query",
+    description: "Say 'remember this: ...' for instant capture. Query your brain anytime for context across all your work.",
+    code: `> "Remember: switched to Postgres\n   for row-level security"\n\n# Later:\n> "What did we decide about auth?"\n\n# Brain returns context from\n# Projects/auth/ automatically`,
   },
 ];
 

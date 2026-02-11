@@ -6,12 +6,11 @@ import { Check, X, Minus } from "lucide-react";
 const features = [
   { name: "Free & Open Source", remember: true, mem: false, reflect: false, notion: false },
   { name: "Local-first (no cloud)", remember: true, mem: false, reflect: false, notion: false },
-  { name: "Deterministic capture", remember: true, mem: false, reflect: false, notion: false },
-  { name: "AI agent integration", remember: true, mem: "partial", reflect: false, notion: "partial" },
+  { name: "Bulk session processing", remember: true, mem: false, reflect: false, notion: false },
+  { name: "Adaptive learning (Persona)", remember: true, mem: false, reflect: false, notion: false },
+  { name: "Queryable knowledge base", remember: true, mem: "partial", reflect: "partial", notion: "partial" },
   { name: "Obsidian compatible", remember: true, mem: false, reflect: false, notion: false },
   { name: "Plain Markdown files", remember: true, mem: false, reflect: false, notion: false },
-  { name: "Wikilinks & backlinks", remember: true, mem: true, reflect: true, notion: false },
-  { name: "Zero config", remember: true, mem: true, reflect: true, notion: true },
   { name: "Works offline", remember: true, mem: false, reflect: false, notion: false },
   { name: "No subscription", remember: true, mem: false, reflect: false, notion: false },
 ];

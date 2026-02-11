@@ -6,10 +6,17 @@ import { Fingerprint, Shield, Code2, BookOpen, Brain } from "lucide-react";
 const features = [
   {
     icon: Fingerprint,
-    title: "100% Deterministic Capture",
+    title: "Bulk Session Processing",
     description:
-      "Hook-based triggers, not AI guessing. When you say 'remember this', it captures. Every time. No surprises.",
+      "Extract knowledge from past Claude sessions retroactively. Process months of transcripts in minutes, organized automatically.",
     gradient: "from-emerald-400 to-teal-400",
+  },
+  {
+    icon: Brain,
+    title: "Adaptive Persona Learning",
+    description:
+      "Persona.md evolves with you—learning your code style, communication patterns, and workflow preferences. Loaded every session.",
+    gradient: "from-purple-400 to-violet-400",
   },
   {
     icon: Shield,
@@ -20,23 +27,16 @@ const features = [
   },
   {
     icon: Code2,
-    title: "Free & Open Source",
+    title: "Queryable Knowledge Base",
     description:
-      "MIT licensed. Read the code, fork it, modify it. Built by developers, for developers.",
-    gradient: "from-purple-400 to-violet-400",
+      "Ask your brain for context across projects, people, and decisions. Auto-organized using PARA + Zettelkasten methodology.",
+    gradient: "from-orange-400 to-amber-400",
   },
   {
     icon: BookOpen,
     title: "Obsidian Compatible",
     description:
-      "Outputs standard Markdown with [[wikilinks]] and YAML frontmatter. Open your second brain in Obsidian instantly.",
-    gradient: "from-orange-400 to-amber-400",
-  },
-  {
-    icon: Brain,
-    title: "AI-Native Architecture",
-    description:
-      "Built specifically for AI coding agents. Works with Claude Code's hook system for zero-friction capture.",
+      "Standard Markdown with [[wikilinks]] and YAML frontmatter. Works seamlessly with Obsidian, Logseq, or any text editor.",
     gradient: "from-pink-400 to-rose-400",
   },
 ];
@@ -68,8 +68,8 @@ export default function Features() {
             Built different
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Not another AI note-taking app. Remember is a deterministic capture system 
-            that turns your coding sessions into a searchable knowledge base.
+            Not another note-taking app. Remember extracts knowledge from Claude sessions—past and present—
+            into a self-organizing, queryable second brain that learns how you work.
           </p>
         </motion.div>
 

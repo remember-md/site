@@ -27,8 +27,8 @@ export default function CTA() {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          One command to install. Zero config needed. 
-          Your knowledge base starts building itself from the first session.
+          Clone the plugin, run /brain:init, and start extracting knowledge.
+          Process past sessions or capture live. Zero manual organizing.
         </motion.p>
 
         <motion.div
@@ -39,10 +39,10 @@ export default function CTA() {
           transition={{ delay: 0.2 }}
         >
           <a
-            href="https://github.com/remember-md/remember"
+            href="https://github.com/remember-md/remember#install"
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-white text-black font-semibold hover:bg-zinc-200 transition-colors text-lg"
           >
-            Install Now
+            View Install Guide
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
@@ -55,14 +55,14 @@ export default function CTA() {
         </motion.div>
 
         <motion.div
-          className="code-editor inline-block px-6 py-3"
+          className="code-editor inline-block px-6 py-3 max-w-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
           <code className="text-sm text-zinc-300 font-mono">
-            <span className="text-emerald-400">$</span> npx remember-md@latest init
+            <span className="text-emerald-400">$</span> git clone https://github.com/remember-md/remember.git ~/.claude/plugins/remember
           </code>
         </motion.div>
       </div>

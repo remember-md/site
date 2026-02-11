@@ -6,7 +6,7 @@ const links = [
   { label: "Documentation", href: "https://github.com/remember-md/remember#readme", icon: BookOpen },
   { label: "GitHub", href: "https://github.com/remember-md/remember", icon: Github },
   { label: "Discussions", href: "https://github.com/remember-md/remember/discussions", icon: MessageSquare },
-  { label: "Twitter", href: "https://twitter.com/gabrielm", icon: Twitter },
+  { label: "Twitter", href: "https://twitter.com/gabifratica", icon: Twitter },
 ];
 
 export default function Footer() {

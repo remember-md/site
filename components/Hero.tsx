@@ -36,9 +36,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Your AI agent&apos;s{" "}
+            Your AI-Powered{" "}
             <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">
-              memory
+              Second Brain
             </span>
           </motion.h1>
 
@@ -48,8 +48,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            A deterministic second-brain plugin for Claude Code. 
-            Captures decisions, ideas, and context automatically into local Markdown files.
+            Extract knowledge from every Claude Code session—past and present.
+            Automatically organized. Learns your patterns. Query for context
+            across all your work. Zero manual organizing.
           </motion.p>
 
           <motion.div
