@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     title: "Remember — Your AI-Powered Second Brain",
     description: "Extract knowledge from Claude Code sessions. Auto-organized, adaptive, queryable. Local-first and open source.",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Remember — Your AI-Powered Second Brain" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
     creator: "@gabifratica",
     title: "Remember — Your AI-Powered Second Brain",
     description: "Extract knowledge from Claude Code sessions. Auto-organized, adaptive, queryable. Local-first and open source.",
+    images: ["/og-image.jpg"],
   },
 };
 
