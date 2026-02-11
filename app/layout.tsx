@@ -13,8 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Remember - AI-Powered Second Brain",
-  description: "Your Claude Code plugin that builds a Second Brain automatically",
+  title: "Remember — Your AI Agent's Memory",
+  description: "A deterministic second-brain plugin for Claude Code. Captures decisions, ideas, and context automatically into local Markdown files.",
+  keywords: ["claude code", "second brain", "AI memory", "obsidian", "markdown", "plugin"],
+  openGraph: {
+    title: "Remember — Your AI Agent's Memory",
+    description: "A deterministic second-brain plugin for Claude Code.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -23,9 +29,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#09090b] text-white`}
       >
         {children}
       </body>
