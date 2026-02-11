@@ -1,50 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, BookOpen, Shield, Coins } from "lucide-react";
-import { ReactNode } from "react";
+import { Check } from "lucide-react";
 
-const personas: { icon: ReactNode; emoji: string; title: string; desc: string }[] = [
-  {
-    icon: <Code2 className="w-6 h-6" />,
-    emoji: "🧑‍💻",
-    title: "Developers",
-    desc: "You use Claude Code daily and want to capture architecture decisions, patterns, and context automatically.",
-  },
-  {
-    icon: <BookOpen className="w-6 h-6" />,
-    emoji: "📓",
-    title: "Obsidian Users",
-    desc: "You love Obsidian but want AI-powered capture. Same Markdown files, supercharged with auto-organization.",
-  },
-  {
-    icon: <Shield className="w-6 h-6" />,
-    emoji: "🔒",
-    title: "Privacy Advocates",
-    desc: "Your notes never leave your machine. No cloud, no tracking, no terms of service on your thoughts.",
-  },
-  {
-    icon: <Coins className="w-6 h-6" />,
-    emoji: "💸",
-    title: "Budget-Conscious",
-    desc: "Everything Mem.ai charges $12/mo for. Free. Forever. Open source.",
-  },
+const reasons = [
+  "You want a second brain but maintaining it feels like a second job",
+  "You use Claude Code daily and want automatic knowledge capture",
+  "You value privacy and data ownership (local-first, Git-friendly)",
+  "You prefer open source and local-first tools",
+  "You want full control over your data and workflow",
+  "You want Obsidian's power + AI automation",
 ];
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.08 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, x: -20 },
+  show: { opacity: 1, x: 0 },
 };
 
 export default function WhoIsThisFor() {
   return (
     <section id="who" className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -60,32 +41,34 @@ export default function WhoIsThisFor() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="flex flex-col gap-4"
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
-          {personas.map((p) => (
+          {reasons.map((reason) => (
             <motion.div
-              key={p.title}
+              key={reason}
               variants={item}
-              className="group relative rounded-xl border border-white/5 bg-white/[0.02] p-8 hover:bg-white/[0.04] transition-colors"
+              className="flex items-start gap-4 p-4 rounded-lg border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center text-2xl">
-                  {p.emoji}
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold text-lg mb-2">
-                    {p.title}
-                  </h3>
-                  <p className="text-zinc-400 leading-relaxed">{p.desc}</p>
-                </div>
+              <div className="flex-shrink-0 w-8 h-8 rounded-md bg-emerald-500/10 flex items-center justify-center mt-0.5">
+                <Check className="w-5 h-5 text-emerald-400" />
               </div>
+              <p className="text-zinc-300 text-lg leading-relaxed">{reason}</p>
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.p
+          className="text-center text-zinc-500 text-sm mt-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          ❌ Not for you if: You need mobile apps or cloud sync (coming in Remember Pro)
+        </motion.p>
       </div>
     </section>
   );
