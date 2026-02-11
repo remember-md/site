@@ -49,8 +49,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Extract knowledge from every Claude Code session—past and present.
-            Automatically organized. Learns your patterns. Query for context
-            across all your work. Zero manual organizing.
+            Projects, people, notes, and tasks auto-organized. Learns your patterns.
+            Query for context across all your work. Zero manual organizing.
           </motion.p>
 
           <motion.div

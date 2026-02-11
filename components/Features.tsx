@@ -29,7 +29,7 @@ const features = [
     icon: Code2,
     title: "Queryable Knowledge Base",
     description:
-      "Ask your brain for context across projects, people, and decisions. Auto-organized using PARA + Zettelkasten methodology.",
+      "Ask your brain for context across projects, people, decisions, and tasks. Auto-organized using PARA + Zettelkasten methodology.",
     gradient: "from-orange-400 to-amber-400",
   },
   {

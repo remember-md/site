@@ -16,7 +16,7 @@ const steps = [
     icon: Workflow,
     title: "Process Past Sessions",
     description: "Extract knowledge from old Claude sessions in bulk. Runs retroactively—your entire history becomes queryable.",
-    code: `# Process unprocessed sessions:\n/brain:process\n\n# Result: Projects, People, Notes,\n# Journal entries auto-created from\n# past transcripts`,
+    code: `# Process unprocessed sessions:\n/brain:process\n\n# Result: Projects, People, Notes,\n# Tasks, Journal entries auto-created\n# from past transcripts`,
   },
   {
     number: "03",
