@@ -32,7 +32,7 @@ export default function CTA() {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-4 justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -52,18 +52,6 @@ export default function CTA() {
             <Github className="w-5 h-5" />
             Star on GitHub
           </a>
-        </motion.div>
-
-        <motion.div
-          className="code-editor inline-block px-6 py-3 max-w-lg"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <code className="text-sm text-zinc-300 font-mono">
-            <span className="text-emerald-400">$</span> git clone https://github.com/remember-md/remember.git ~/.claude/plugins/remember
-          </code>
         </motion.div>
       </div>
     </section>
