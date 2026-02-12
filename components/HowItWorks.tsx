@@ -9,7 +9,7 @@ const steps = [
     icon: Terminal,
     title: "Install & Initialize",
     description: "Clone the plugin and run /brain:init to create your PARA structure. Persona.md starts learning from session one.",
-    code: `git clone https://github.com/remember-md/remember.git \\\n  ~/.claude/plugins/remember\n\n# In Claude Code:\n/brain:init`,
+    code: `# In Claude Code:\n/plugin marketplace add remember-md/marketplace\n/plugin install remember\n\n# Initialize your second brain:\n/brain:init`,
   },
   {
     number: "02",
