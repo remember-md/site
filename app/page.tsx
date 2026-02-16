@@ -1,12 +1,11 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Problem from "../components/Problem";
-import Solution from "../components/Solution";
 import BeforeAfter from "../components/BeforeAfter";
+import WhatYouGet from "../components/WhatYouGet";
 import HowItWorks from "../components/HowItWorks";
 import Features from "../components/Features";
-import Generator from "../components/Generator";
-import Platforms from "../components/Platforms";
+import Install from "../components/Install";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
@@ -17,12 +16,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Problem />
-      <Solution />
       <BeforeAfter />
+      <WhatYouGet />
       <HowItWorks />
       <Features />
-      <Generator />
-      <Platforms />
+      <Install />
       <FAQ />
       <CTA />
       <Footer />

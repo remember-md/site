@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Github } from "lucide-react";
 
 const links = [
-  { label: "How it Works", href: "#how-it-works" },
+  { label: "How It Works", href: "#how-it-works" },
   { label: "Features", href: "#features" },
-  { label: "Get Started", href: "#get-started" },
+  { label: "Install", href: "#install" },
 ];
 
 export default function Navbar() {
@@ -42,10 +42,13 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#get-started"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 text-sm font-medium hover:from-purple-500 hover:to-violet-500 transition-all"
+            href="https://github.com/remember-md/remember"
+            className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 text-sm text-zinc-400 hover:text-white hover:bg-white/5 transition-all"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Install Plugin
+            <Github className="w-4 h-4" />
+            Star on GitHub
           </a>
 
           <button
@@ -78,11 +81,14 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="#get-started"
-                className="block w-full text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 text-sm font-medium mt-2"
+                href="https://github.com/remember-md/remember"
+                className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors py-2"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
               >
-                Install Plugin
+                <Github className="w-4 h-4" />
+                Star on GitHub
               </a>
             </div>
           </motion.div>

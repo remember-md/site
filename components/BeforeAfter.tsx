@@ -13,8 +13,12 @@ export default function BeforeAfter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Before &amp; After</h2>
-          <p className="text-zinc-400 text-lg">Same question. Completely different experience.</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Same question.{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+              Different experience.
+            </span>
+          </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -65,8 +69,14 @@ export default function BeforeAfter() {
                 <span className="text-zinc-500">AI:</span>
                 <p className="text-emerald-300/90 mt-1">
                   &quot;On Jan 15, you and Sarah chose JWT + refresh tokens.
+                  <br />
                   Rationale: simpler than OAuth for internal APIs.
-                  See <span className="text-emerald-400 underline decoration-emerald-400/30">Notes/decision-auth.md</span>&quot;
+                  <br />
+                  See{" "}
+                  <span className="text-emerald-400 underline decoration-emerald-400/30">
+                    Notes/decision-auth.md
+                  </span>
+                  &quot;
                 </p>
               </div>
             </div>

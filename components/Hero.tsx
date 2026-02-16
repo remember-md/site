@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowDown, Shield, Cpu, Target, Sparkles } from "lucide-react";
+import { ArrowRight, Github, Shield, Code2, BookOpen, Heart } from "lucide-react";
 
 const stats = [
-  { icon: Target, label: "100% capture rate" },
-  { icon: Shield, label: "Local & private" },
-  { icon: Cpu, label: "Works with any AI" },
-  { icon: Sparkles, label: "Free forever" },
+  { icon: Shield, label: "100% local" },
+  { icon: Code2, label: "Open source" },
+  { icon: BookOpen, label: "Obsidian compatible" },
+  { icon: Heart, label: "Free forever" },
 ];
 
 export default function Hero() {
@@ -79,8 +79,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
         >
-          Every decision, every insight, every person you discuss —
-          gone after the session ends. <span className="text-zinc-200 font-medium">Remember changes that.</span>
+          Remember builds a Second Brain from your AI sessions —{" "}
+          <span className="text-zinc-200 font-medium">
+            decisions, people, insights, tasks
+          </span>{" "}
+          — all auto-organized.
         </motion.p>
 
         <motion.div
@@ -90,18 +93,20 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35 }}
         >
           <a
-            href="#get-started"
+            href="#install"
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition-colors"
           >
-            Get Started — Free
+            Install Free
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="#how-it-works"
+            href="https://github.com/remember-md/remember"
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/10 text-zinc-300 hover:bg-white/5 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            See How It Works
-            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            <Github className="w-4 h-4" />
+            View on GitHub
           </a>
         </motion.div>
       </div>

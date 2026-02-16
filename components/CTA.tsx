@@ -35,22 +35,20 @@ export default function CTA() {
           transition={{ delay: 0.2 }}
         >
           <a
-            href="https://github.com/remember-md/remember#install"
+            href="#install"
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Install for Claude Code
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="https://github.com/remember-md"
+            href="https://github.com/remember-md/remember"
             className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/10 text-zinc-300 hover:bg-white/5 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Github className="w-4 h-4" />
-            View on GitHub
+            Star on GitHub
           </a>
         </motion.div>
       </div>

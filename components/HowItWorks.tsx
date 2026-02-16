@@ -1,69 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileEdit, Download, Zap } from "lucide-react";
+import { Download, MessageSquare, Search } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    icon: FileEdit,
-    title: "Create REMEMBER.md",
-    time: "30 seconds",
-    description:
-      "Define what to capture, what to skip, and how to organize. Global rules for all projects, or per-project overrides.",
-    bullets: [
-      "Global: ~/remember/REMEMBER.md for universal preferences",
-      "Per-project: ./REMEMBER.md for project-specific rules",
-      "Or use our generator below",
-    ],
-    code: `# REMEMBER.md
-
-## Capture Rules
-### Always Capture
-- Decisions with rationale
-- People and their roles
-- Lessons learned
-
-### Never Capture
-- Debugging trial-and-error
-- Routine code generation`,
-  },
-  {
-    number: "02",
     icon: Download,
-    title: "Install Remember",
-    time: "1 minute",
+    title: "Install",
     description:
-      "Add the plugin to Claude Code. It reads your REMEMBER.md and starts capturing automatically.",
-    bullets: [
-      "Also works as an OpenClaw skill",
-      "Cursor & Copilot support coming soon",
-    ],
-    code: `# Claude Code
+      "Creates your Second Brain structure and starts learning from day one.",
+    code: `# In Claude Code:
 /plugin marketplace add remember-md/marketplace
 /plugin install remember
-
-# Initialize your second brain
 /remember:init`,
   },
   {
-    number: "03",
-    icon: Zap,
-    title: "Work normally. Knowledge accumulates.",
-    time: "Ongoing",
+    number: "02",
+    icon: MessageSquare,
+    title: "Work normally",
     description:
-      "Just work as usual. Knowledge is captured in the background. Your second brain grows automatically.",
-    bullets: [
-      'Say "remember this: ..." for instant capture',
-      "Run /remember:process to extract from past sessions",
-      "Your second brain grows automatically",
-    ],
+      "Say \"remember this: ...\" for instant capture. Or run /remember:process to extract from past sessions.",
     code: `> remember this: we chose Postgres over MongoDB
-  because of ACID compliance requirements
+  because of ACID compliance
 
 ✓ Captured to Notes/decision-database.md
 ✓ Updated Projects/auth-service.md
 ✓ Linked People/sarah.md`,
+  },
+  {
+    number: "03",
+    icon: Search,
+    title: "Query your brain",
+    description:
+      "Your AI now has memory. Context accumulates across sessions.",
+    code: `You: "What do we know about Sarah?"
+
+AI: "Sarah Chen — Backend Lead @ Acme
+     Last discussed: auth architecture (Feb 14)
+     Prefers JWT over OAuth for internal APIs
+     See People/sarah-chen.md"`,
   },
 ];
 
@@ -78,10 +54,12 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">How it works</h2>
-          <p className="text-zinc-400 text-lg">
-            Three steps. Five minutes. Knowledge that lasts forever.
-          </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Three steps.{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+              Five minutes.
+            </span>
+          </h2>
         </motion.div>
 
         <div className="space-y-20 md:space-y-24">
@@ -101,21 +79,10 @@ export default function HowItWorks() {
                   </span>
                   <step.icon className="w-6 h-6 text-purple-400" />
                 </div>
-                <h3 className="text-2xl font-bold mb-1">{step.title}</h3>
-                <span className="text-xs font-mono text-purple-400 mb-4 inline-block">
-                  {step.time}
-                </span>
-                <p className="text-zinc-400 leading-relaxed max-w-md mb-4">
+                <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+                <p className="text-zinc-400 leading-relaxed max-w-md">
                   {step.description}
                 </p>
-                <ul className="space-y-2">
-                  {step.bullets.map((bullet, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-zinc-500">
-                      <span className="w-1 h-1 rounded-full bg-zinc-600 mt-2 flex-shrink-0" />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <div className="flex-1 w-full">

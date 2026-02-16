@@ -6,32 +6,28 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "What is REMEMBER.md?",
-    a: "A markdown file that tells AI what to remember about you. It defines your capture rules, language preferences, and organization structure. Think of it like .editorconfig — but for AI memory.",
+    q: "What is Remember?",
+    a: "A plugin for Claude Code that builds a Second Brain from your AI sessions. Decisions, people, insights, tasks — auto-organized into plain markdown files.",
   },
   {
-    q: "Is this free?",
-    a: "Yes. MIT licensed, free forever. No subscription, no premium tier, no hidden costs. The code is open source on GitHub.",
-  },
-  {
-    q: "Does it work without the plugin?",
-    a: "Yes! REMEMBER.md is just a markdown file. Any AI can read it if you include it in context. The plugin automates the capture process, but the file format works anywhere.",
+    q: "Is it free?",
+    a: "Yes, completely. MIT licensed, always free, open source.",
   },
   {
     q: "Where does my data go?",
-    a: "Nowhere. Everything stays on your machine as plain markdown files. No cloud, no sync, no telemetry. Your data never leaves your computer.",
+    a: "Nowhere. Everything stays on your machine as local markdown files. No cloud, no telemetry.",
   },
   {
     q: "Does it work with Obsidian?",
-    a: "Yes, fully compatible. Standard Markdown with [[wikilinks]] and YAML frontmatter. Your second brain works seamlessly as an Obsidian vault with graph view and everything.",
+    a: "Yes. Wikilinks, YAML frontmatter, graph view — fully compatible.",
   },
   {
-    q: "What's Persona.md?",
-    a: "An AI-maintained file that learns your patterns automatically. While REMEMBER.md is your instructions to the AI (prescriptive), Persona.md is what the AI has observed about you (descriptive) — your code style, preferences, and workflow patterns.",
+    q: "What is Persona.md?",
+    a: "An AI-maintained file that learns your patterns — code style, communication preferences, workflow habits. Loaded automatically every session.",
   },
   {
-    q: "Can I use it per-project?",
-    a: "Yes! Global REMEMBER.md (~/remember/REMEMBER.md) sets universal preferences. Project-level REMEMBER.md (./REMEMBER.md) adds project-specific rules. They cascade — project rules extend global rules.",
+    q: "Can I customize what gets captured?",
+    a: "Yes. Add a REMEMBER.md file to control capture rules, routing, and language preferences.",
   },
 ];
 
@@ -101,9 +97,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Frequently asked questions
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Questions</h2>
         </motion.div>
 
         <div className="border-t border-white/5">
