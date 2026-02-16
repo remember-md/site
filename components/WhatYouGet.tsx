@@ -113,7 +113,7 @@ export default function WhatYouGet() {
           transition={{ delay: 0.3 }}
         >
           <span className="text-zinc-200 font-medium">47 notes, 12 people tracked, 5 project files</span>{" "}
-          — auto-populated. Zero manual organizing.
+          — auto-organized using PARA + Zettelkasten methodology. Zero manual filing.
         </motion.p>
       </div>
     </section>

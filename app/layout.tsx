@@ -14,17 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://remember.md"),
-  title: "Remember — Never Lose Knowledge from AI Sessions Again",
-  description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local second brain that grows with every conversation. Free, open source, private.",
-  keywords: ["REMEMBER.md", "AI memory", "second brain", "knowledge management", "claude code plugin", "AI knowledge capture", "local-first", "markdown", "PKM", "obsidian compatible"],
+  title: "Remember — AI-Powered Second Brain That Builds Itself",
+  description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local PARA-based second brain that grows with every conversation. Free, open source, Obsidian compatible.",
+  keywords: ["AI second brain", "PARA method", "Zettelkasten", "PKM", "personal knowledge management", "AI memory", "knowledge capture", "claude code plugin", "local-first", "markdown", "obsidian compatible", "REMEMBER.md"],
   robots: "index, follow",
   category: "developer tools",
   alternates: {
     canonical: "https://remember.md",
   },
   openGraph: {
-    title: "Remember — Never Lose Knowledge from AI Sessions Again",
-    description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local second brain. Free. Local. Open Source.",
+    title: "Remember — AI-Powered Second Brain That Builds Itself",
+    description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local PARA-based second brain. Free. Local. Open Source.",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Remember — AI Second Brain" }],
   },
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@gabifratica",
     creator: "@gabifratica",
-    title: "Remember — Never Lose Knowledge from AI Sessions Again",
-    description: "Your AI forgets everything after each session. Remember captures it all into a local second brain. Free. Open source.",
+    title: "Remember — AI-Powered Second Brain That Builds Itself",
+    description: "Your AI forgets everything after each session. Remember captures it all into a local PARA-based second brain. Free. Open source.",
     images: ["/og-image.jpg"],
   },
 };
@@ -42,7 +42,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Remember",
-  description: "Never lose knowledge from AI sessions again. Remember captures decisions, people, insights, and lessons into a local second brain that grows with every conversation.",
+  description: "AI-powered second brain that builds itself. Remember captures decisions, people, insights, and lessons from AI sessions into a PARA + Zettelkasten knowledge base. Local, free, Obsidian compatible.",
   url: "https://remember.md",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",

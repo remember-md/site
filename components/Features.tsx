@@ -36,7 +36,7 @@ const features = [
     icon: BookOpen,
     title: "Obsidian Compatible",
     description:
-      "Wikilinks, YAML frontmatter, graph view. Works with Obsidian, Logseq, or any text editor.",
+      "PARA + Zettelkasten structure with wikilinks, YAML frontmatter, and graph view. Works with Obsidian, Logseq, or any editor.",
     iconColor: "text-amber-400",
   },
   {

@@ -29,6 +29,10 @@ const faqs = [
     q: "Can I customize what gets captured?",
     a: "Yes. Add a REMEMBER.md file to control capture rules, routing, and language preferences.",
   },
+  {
+    q: "How does Remember organize knowledge?",
+    a: "Using PARA (Projects, Areas, Notes, Resources) combined with Zettelkasten-style linked thinking. Every note connects to related people, projects, and decisions via wikilinks — creating a personal knowledge management system that grows organically.",
+  },
 ];
 
 function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
