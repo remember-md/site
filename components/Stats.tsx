@@ -1,54 +1,41 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Layers, FileText, Settings, Cpu } from "lucide-react";
 
-function AnimatedCounter({ target, label, suffix = "" }: { target: number; label: string; suffix?: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [isInView, target]);
-
-  return (
-    <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold font-mono bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-        {count.toLocaleString()}{suffix}
-      </div>
-      <div className="text-zinc-500 text-sm mt-2">{label}</div>
-    </div>
-  );
-}
+const stats = [
+  { icon: Layers, label: "7 sections", description: "Optional spec sections" },
+  { icon: FileText, label: "Pure markdown", description: "No schemas needed" },
+  { icon: Settings, label: "Zero config works", description: "Empty file = defaults" },
+  { icon: Cpu, label: "Any AI tool", description: "Universal standard" },
+];
 
 export default function Stats() {
   return (
-    <section className="py-20 px-6 border-y border-white/5">
+    <section className="py-12 px-6 border-y border-white/5">
       <motion.div
         className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
       >
-        <AnimatedCounter target={100} label="GitHub Stars" suffix="+" />
-        <AnimatedCounter target={12} label="Capture latency" suffix="ms" />
-        <AnimatedCounter target={0} label="Cloud dependencies" />
-        <AnimatedCounter target={100} label="Local & private" suffix="%" />
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            className="text-center"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+          >
+            <stat.icon className="w-5 h-5 text-purple-400 mx-auto mb-2" />
+            <div className="text-lg md:text-xl font-semibold text-white">
+              {stat.label}
+            </div>
+            <div className="text-zinc-500 text-xs mt-1">{stat.description}</div>
+          </motion.div>
+        ))}
       </motion.div>
     </section>
   );

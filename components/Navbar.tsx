@@ -20,13 +20,15 @@ export default function Navbar() {
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
-          <a href="#features" className="hover:text-white transition-colors">Features</a>
+          <a href="#spec" className="hover:text-white transition-colors">Spec</a>
+          <a href="#plugin" className="hover:text-white transition-colors">Plugin</a>
           <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
           <a href="#comparison" className="hover:text-white transition-colors">Compare</a>
+          <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
         </div>
 
         <a
-          href="https://github.com/remember-md/remember"
+          href="https://github.com/remember-md"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-sm hover:bg-white/5 transition-colors"
           target="_blank"
           rel="noopener noreferrer"

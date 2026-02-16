@@ -14,41 +14,36 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://remember.md"),
-  title: "Remember — Your AI-Powered Second Brain",
-  description: "Extract knowledge from every Claude Code session—past and present. Automatically organized. Learns your patterns. Query for context across all your work. Zero manual organizing.",
-  keywords: ["claude code", "second brain", "AI memory", "obsidian", "markdown", "plugin", "PARA", "Zettelkasten", "knowledge management", "PKM", "session processing"],
+  title: "REMEMBER.md — The Open Standard for AI Memory",
+  description: "A single markdown file that tells AI tools what to capture, how to process it, and where to store it. Open standard. Pure markdown. Any AI tool.",
+  keywords: ["REMEMBER.md", "AI memory", "open standard", "markdown", "claude code", "AI knowledge", "second brain", "plugin", "knowledge management", "PKM", "specification"],
   robots: "index, follow",
   category: "developer tools",
   alternates: {
     canonical: "https://remember.md",
   },
   openGraph: {
-    title: "Remember — Your AI-Powered Second Brain",
-    description: "Extract knowledge from Claude Code sessions. Auto-organized, adaptive, queryable. Local-first and open source.",
+    title: "REMEMBER.md — The Open Standard for AI Memory",
+    description: "A single markdown file that tells AI tools what to capture, how to process it, and where to store it. Open standard. Pure markdown. Any AI tool.",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Remember — Your AI-Powered Second Brain" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "REMEMBER.md — The Open Standard for AI Memory" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@gabifratica",
     creator: "@gabifratica",
-    title: "Remember — Your AI-Powered Second Brain",
-    description: "Extract knowledge from Claude Code sessions. Auto-organized, adaptive, queryable. Local-first and open source.",
+    title: "REMEMBER.md — The Open Standard for AI Memory",
+    description: "A single markdown file that tells AI tools what to capture, how to process it, and where to store it.",
     images: ["/og-image.jpg"],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Remember",
-  description: "AI-powered second brain for Claude Code. Extract knowledge from sessions into auto-organized Markdown.",
-  applicationCategory: "DeveloperApplication",
-  operatingSystem: "Cross-platform",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  "@type": "WebPage",
+  name: "REMEMBER.md",
+  description: "The open standard for AI memory. A single markdown file that tells AI tools what to capture, how to process it, and where to store it.",
   url: "https://remember.md",
-  downloadUrl: "https://github.com/remember-md/remember",
-  softwareVersion: "1.0",
   author: { "@type": "Person", name: "Gabriel Fratica", url: "https://twitter.com/gabifratica" },
 };
 

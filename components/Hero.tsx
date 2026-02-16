@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Player } from "@remotion/player";
-import { HeroAnimation } from "../remotion/HeroAnimation";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -16,87 +14,68 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 flex flex-col lg:flex-row items-center gap-16">
-        {/* Left: Text */}
-        <div className="flex-1 text-center lg:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-400 mb-6">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Open Source & Free Forever
-            </div>
-          </motion.div>
-
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Your AI-Powered{" "}
-            <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">
-              Second Brain
-            </span>
-          </motion.h1>
-
-          <motion.p
-            className="text-lg md:text-xl text-zinc-400 max-w-xl mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Extract knowledge from every Claude Code session—past and present.
-            Projects, people, notes, and tasks auto-organized. Learns your patterns.
-            Query for context across all your work. Zero manual organizing.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <a
-              href="https://github.com/remember-md/remember"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition-colors"
-            >
-              Install Plugin
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="https://github.com/remember-md/remember"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-white/10 text-zinc-300 hover:bg-white/5 transition-colors"
-            >
-              <Github className="w-4 h-4" />
-              View on GitHub
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Right: Remotion Animation */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-32 text-center">
         <motion.div
-          className="flex-1 w-full max-w-xl"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="code-editor glow overflow-hidden">
-            <Player
-              component={HeroAnimation}
-              durationInFrames={300}
-              fps={30}
-              compositionWidth={640}
-              compositionHeight={400}
-              style={{ width: "100%", borderRadius: 12 }}
-              loop
-              autoPlay
-              controls={false}
-              acknowledgeRemotionLicense
-            />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-400 mb-8">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Open Standard · v1.0
           </div>
+        </motion.div>
+
+        <motion.h1
+          className="text-6xl md:text-8xl font-bold tracking-tight leading-[1.05] mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-blue-400 bg-clip-text text-transparent font-mono">
+            REMEMBER.md
+          </span>
+        </motion.h1>
+
+        <motion.p
+          className="text-xl md:text-2xl text-zinc-300 font-medium mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          The open standard for AI memory.
+        </motion.p>
+
+        <motion.p
+          className="text-base md:text-lg text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          A single markdown file that tells AI tools what to capture,
+          how to process it, and where to store it.
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <a
+            href="#spec"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition-colors"
+          >
+            Read the Spec
+            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+          </a>
+          <a
+            href="#plugin"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-white/10 text-zinc-300 hover:bg-white/5 transition-colors"
+          >
+            Get the Plugin
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
         </motion.div>
       </div>
     </section>

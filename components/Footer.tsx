@@ -3,8 +3,8 @@
 import { Github, Twitter, MessageSquare, BookOpen } from "lucide-react";
 
 const links = [
-  { label: "Documentation", href: "https://github.com/remember-md/remember#readme", icon: BookOpen },
-  { label: "GitHub", href: "https://github.com/remember-md/remember", icon: Github },
+  { label: "Spec", href: "#spec", icon: BookOpen },
+  { label: "GitHub", href: "https://github.com/remember-md", icon: Github },
   { label: "Discussions", href: "https://github.com/remember-md/remember/discussions", icon: MessageSquare },
   { label: "Twitter", href: "https://twitter.com/gabifratica", icon: Twitter },
 ];
@@ -26,8 +26,8 @@ export default function Footer() {
               key={link.label}
               href={link.href}
               className="text-zinc-500 hover:text-white transition-colors flex items-center gap-2 text-sm"
-              target="_blank"
-              rel="noopener noreferrer"
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               <link.icon className="w-4 h-4" />
               <span className="hidden sm:inline">{link.label}</span>
@@ -36,7 +36,15 @@ export default function Footer() {
         </div>
 
         <p className="text-zinc-600 text-xs">
-          Built with ❤️ for the AI-native developer workflow
+          REMEMBER.md is an open standard by{" "}
+          <a
+            href="https://github.com/remember-md"
+            className="text-zinc-500 hover:text-zinc-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            remember-md
+          </a>
         </p>
       </div>
     </footer>

@@ -6,40 +6,32 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "What is Remember?",
-    a: "AI-powered second brain plugin for Claude Code that extracts and organizes knowledge from your coding sessions automatically.",
-  },
-  {
-    q: "Is Remember free?",
-    a: "Yes, completely free and open source (MIT license). No subscription, no hidden costs.",
-  },
-  {
-    q: "How does bulk session processing work?",
-    a: "Run /remember:process to extract knowledge from past Claude Code session transcripts. It processes JSONL files retroactively, so even sessions before you installed Remember become part of your knowledge base.",
-  },
-  {
-    q: "Does Remember work with Obsidian?",
-    a: "Yes. Remember outputs standard Markdown with [[wikilinks]] and YAML frontmatter, fully compatible with Obsidian, Logseq, or any text editor.",
-  },
-  {
-    q: "Does Remember send my data to the cloud?",
-    a: "No. Everything stays on your machine in plain Markdown files. No cloud, no sync, no telemetry. Your data is 100% yours.",
-  },
-  {
-    q: "What is Persona.md?",
-    a: "An adaptive learning file that evolves with you. It captures your code style, communication patterns, and workflow preferences. Loaded at every session start.",
-  },
-  {
-    q: "Can I query my second brain?",
-    a: "Yes. Ask your brain for context across projects, people, decisions, and tasks. Claude uses your organized knowledge to provide relevant context.",
-  },
-  {
     q: "What is REMEMBER.md?",
-    a: "A user-editable markdown file where you define custom rules for capture, processing, routing, and templates. Think of it as your brain's config file — but in plain markdown, not JSON. Persona.md learns your patterns automatically; REMEMBER.md is where you tell it what you want explicitly.",
+    a: "REMEMBER.md is an open standard — a single markdown file that tells AI tools what to capture, how to process it, and where to store it. Think of it like .editorconfig for AI memory. Any AI tool can read and respect it.",
   },
   {
-    q: "How is Remember different from Notion AI or Mem.ai?",
-    a: "Remember is free, open source, and local-first. No subscription, no vendor lock-in. Your notes are plain Markdown files you own forever.",
+    q: "Is this just for the Remember plugin?",
+    a: "No. REMEMBER.md is an open standard that any AI tool can implement. The Remember plugin for Claude Code is the reference implementation — the first tool built on the standard — but the spec is designed to be universal.",
+  },
+  {
+    q: "What's the difference between REMEMBER.md and Persona.md?",
+    a: "REMEMBER.md is prescriptive — it's YOUR instructions to the AI about what to capture and how to organize it. Persona.md is descriptive — it's what the AI has observed and learned about you over time. You write REMEMBER.md; the AI writes Persona.md.",
+  },
+  {
+    q: "Is Remember (the plugin) free?",
+    a: "Yes. MIT licensed, free forever. No subscription, no hidden costs, no premium tier. The code is open source on GitHub.",
+  },
+  {
+    q: "Can I use REMEMBER.md without the plugin?",
+    a: "Absolutely. REMEMBER.md is just a markdown file — it's a standard, not a product. Any AI tool can parse and implement it. The spec is simple enough to add support in under 50 lines of code.",
+  },
+  {
+    q: "What if my AI tool doesn't support REMEMBER.md?",
+    a: "You can request support from the tool maker, or contribute an implementation yourself. The spec is designed to be trivial to parse — it's just markdown headers and content.",
+  },
+  {
+    q: "Will REMEMBER.md break between versions?",
+    a: "No. We guarantee no breaking changes. The spec is additive only — new sections may be added, but existing sections will never change their meaning or be removed.",
   },
 ];
 
@@ -113,7 +105,7 @@ export default function FAQ() {
             Frequently asked questions
           </h2>
           <p className="text-zinc-400 text-lg">
-            Everything you need to know about Remember.
+            About the standard and the plugin.
           </p>
         </motion.div>
 

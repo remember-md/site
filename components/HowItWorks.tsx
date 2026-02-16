@@ -1,29 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Workflow, BrainCircuit } from "lucide-react";
+import { FileEdit, Cpu, FolderOpen } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    icon: Terminal,
-    title: "Install & Initialize",
-    description: "Install the plugin and run /remember:init to create your PARA structure. Persona.md starts learning from session one.",
-    code: `# In Claude Code:\n/plugin marketplace add remember-md/marketplace\n/plugin install remember\n\n# Initialize your second brain:\n/remember:init`,
+    icon: FileEdit,
+    title: "Create REMEMBER.md",
+    description: "Add a REMEMBER.md file to your project or brain root. Define what to capture, what to skip, and how to organize.",
+    code: `# REMEMBER.md
+
+## Capture Rules
+### Always Capture
+- Decisions with rationale
+- Meeting notes and attendees
+
+### Never Capture
+- Debugging sessions
+- Casual greetings`,
   },
   {
     number: "02",
-    icon: Workflow,
-    title: "Process Past Sessions",
-    description: "Extract knowledge from old Claude sessions in bulk. Runs retroactively—your entire history becomes queryable.",
-    code: `# Process unprocessed sessions:\n/remember:process\n\n# Result: Projects, People, Notes,\n# Tasks, Journal entries auto-created\n# from past transcripts`,
+    icon: Cpu,
+    title: "Your AI reads it",
+    description: "When capturing knowledge, your AI tool checks REMEMBER.md. Your rules are applied before defaults — your preferences always win.",
+    code: `# What happens under the hood:
+
+1. AI tool detects knowledge worth saving
+2. Checks for REMEMBER.md at project root
+3. Parses your capture rules
+4. Applies YOUR rules before defaults
+5. Processes content accordingly`,
   },
   {
     number: "03",
-    icon: BrainCircuit,
-    title: "Capture Live & Query",
-    description: "Say 'remember this: ...' for instant capture. Query your brain anytime for context across all your work.",
-    code: `> "Remember: switched to Postgres\n   for row-level security"\n\n# Later:\n> "What did we decide about auth?"\n\n# Brain returns context from\n# Projects/auth/ automatically`,
+    icon: FolderOpen,
+    title: "Knowledge organized your way",
+    description: "Content is routed, formatted, and tagged per your instructions. Works with any compatible tool — no vendor lock-in.",
+    code: `# Result:
+
+second-brain/
+├── Decisions/
+│   └── auth-database-choice.md
+├── Projects/
+│   └── auth-service/
+│       └── auth-service.md
+├── People/
+│   └── sarah-chen.md
+└── Journal/
+    └── 2025-02-15.md`,
   },
 ];
 
@@ -42,7 +68,7 @@ export default function HowItWorks() {
             How it works
           </h2>
           <p className="text-zinc-400 text-lg">
-            Three steps. Zero friction.
+            Three steps. Zero friction. Any AI tool.
           </p>
         </motion.div>
 
