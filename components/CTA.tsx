@@ -27,7 +27,7 @@ export default function CTA() {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          Clone the plugin, run /brain:init, and start extracting knowledge.
+          Install the plugin, run /remember:init, and start extracting knowledge.
           Process past sessions or capture live. Zero manual organizing.
         </motion.p>
 

@@ -8,15 +8,15 @@ const steps = [
     number: "01",
     icon: Terminal,
     title: "Install & Initialize",
-    description: "Clone the plugin and run /brain:init to create your PARA structure. Persona.md starts learning from session one.",
-    code: `# In Claude Code:\n/plugin marketplace add remember-md/marketplace\n/plugin install remember\n\n# Initialize your second brain:\n/brain:init`,
+    description: "Install the plugin and run /remember:init to create your PARA structure. Persona.md starts learning from session one.",
+    code: `# In Claude Code:\n/plugin marketplace add remember-md/marketplace\n/plugin install remember\n\n# Initialize your second brain:\n/remember:init`,
   },
   {
     number: "02",
     icon: Workflow,
     title: "Process Past Sessions",
     description: "Extract knowledge from old Claude sessions in bulk. Runs retroactively—your entire history becomes queryable.",
-    code: `# Process unprocessed sessions:\n/brain:process\n\n# Result: Projects, People, Notes,\n# Tasks, Journal entries auto-created\n# from past transcripts`,
+    code: `# Process unprocessed sessions:\n/remember:process\n\n# Result: Projects, People, Notes,\n# Tasks, Journal entries auto-created\n# from past transcripts`,
   },
   {
     number: "03",

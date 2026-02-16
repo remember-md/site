@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "How does bulk session processing work?",
-    a: "Run /brain:process to extract knowledge from past Claude Code session transcripts. It processes JSONL files retroactively, so even sessions before you installed Remember become part of your knowledge base.",
+    a: "Run /remember:process to extract knowledge from past Claude Code session transcripts. It processes JSONL files retroactively, so even sessions before you installed Remember become part of your knowledge base.",
   },
   {
     q: "Does Remember work with Obsidian?",
@@ -32,6 +32,10 @@ const faqs = [
   {
     q: "Can I query my second brain?",
     a: "Yes. Ask your brain for context across projects, people, decisions, and tasks. Claude uses your organized knowledge to provide relevant context.",
+  },
+  {
+    q: "What is REMEMBER.md?",
+    a: "A user-editable markdown file where you define custom rules for capture, processing, routing, and templates. Think of it as your brain's config file — but in plain markdown, not JSON. Persona.md learns your patterns automatically; REMEMBER.md is where you tell it what you want explicitly.",
   },
   {
     q: "How is Remember different from Notion AI or Mem.ai?",

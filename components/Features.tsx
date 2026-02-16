@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Fingerprint, Shield, Code2, BookOpen, Brain } from "lucide-react";
+import { Fingerprint, Shield, Code2, BookOpen, Brain, Settings2 } from "lucide-react";
 
 const features = [
   {
@@ -31,6 +31,13 @@ const features = [
     description:
       "Ask your brain for context across projects, people, decisions, and tasks. Auto-organized using PARA + Zettelkasten methodology.",
     gradient: "from-orange-400 to-amber-400",
+  },
+  {
+    icon: Settings2,
+    title: "Customizable with REMEMBER.md",
+    description:
+      "Edit a single markdown file to control what gets captured, how content is routed, and define custom templates. Your rules, your brain.",
+    gradient: "from-yellow-400 to-orange-400",
   },
   {
     icon: BookOpen,
