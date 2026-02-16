@@ -1,57 +1,63 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Fingerprint, Shield, Code2, BookOpen, Brain, Settings2 } from "lucide-react";
+import { Target, Brain, Layers, History, Shield, BookOpen } from "lucide-react";
 
 const features = [
   {
-    icon: Fingerprint,
-    title: "Bulk Session Processing",
+    icon: Target,
+    title: "100% Deterministic Capture",
     description:
-      "Extract knowledge from past Claude sessions retroactively. Process months of transcripts in minutes, organized automatically.",
+      "Hooks-based architecture. Every capture is reliable, inspectable, and predictable. No black-box AI guessing.",
     gradient: "from-emerald-400 to-teal-400",
+    iconColor: "text-emerald-400",
   },
   {
     icon: Brain,
-    title: "Adaptive Persona Learning",
+    title: "Adaptive Persona",
     description:
-      "Persona.md evolves with you—learning your code style, communication patterns, and workflow preferences. Loaded every session.",
+      "Persona.md learns your code style, communication patterns, and workflow preferences. Loaded every session.",
     gradient: "from-purple-400 to-violet-400",
+    iconColor: "text-purple-400",
+  },
+  {
+    icon: Layers,
+    title: "Cascading Rules",
+    description:
+      "Global REMEMBER.md + project-level overrides. Your universal preferences cascade into every project.",
+    gradient: "from-blue-400 to-cyan-400",
+    iconColor: "text-blue-400",
+  },
+  {
+    icon: History,
+    title: "Bulk Processing",
+    description:
+      "Extract knowledge from past sessions retroactively. Process months of conversations in minutes.",
+    gradient: "from-orange-400 to-amber-400",
+    iconColor: "text-orange-400",
   },
   {
     icon: Shield,
     title: "Local-First Privacy",
     description:
-      "Everything stays on your machine in plain Markdown files. No cloud, no sync, no telemetry. Your data, your rules.",
-    gradient: "from-blue-400 to-cyan-400",
-  },
-  {
-    icon: Code2,
-    title: "Queryable Knowledge Base",
-    description:
-      "Ask your brain for context across projects, people, decisions, and tasks. Auto-organized using PARA + Zettelkasten methodology.",
-    gradient: "from-orange-400 to-amber-400",
-  },
-  {
-    icon: Settings2,
-    title: "Customizable with REMEMBER.md",
-    description:
-      "Edit a single markdown file to control what gets captured, how content is routed, and define custom templates. Your rules, your brain.",
-    gradient: "from-yellow-400 to-orange-400",
+      "Plain markdown files on your machine. No cloud. No sync. No telemetry. Your data never leaves your computer.",
+    gradient: "from-rose-400 to-pink-400",
+    iconColor: "text-rose-400",
   },
   {
     icon: BookOpen,
     title: "Obsidian Compatible",
     description:
-      "Standard Markdown with [[wikilinks]] and YAML frontmatter. Works seamlessly with Obsidian, Logseq, or any text editor.",
-    gradient: "from-pink-400 to-rose-400",
+      "Wikilinks, frontmatter, graph view. Works seamlessly with Obsidian, Logseq, or any text editor.",
+    gradient: "from-amber-400 to-yellow-400",
+    iconColor: "text-amber-400",
   },
 ];
 
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.08 },
   },
 };
 
@@ -62,7 +68,7 @@ const itemVariants = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-32 px-6">
+    <section id="features" className="py-24 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -75,13 +81,12 @@ export default function Features() {
             Built different
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Not another note-taking app. Remember extracts knowledge from Claude sessions—past and present—
-            into a self-organizing, queryable second brain that learns how you work.
+            Not another note-taking app. A knowledge engine that grows with every AI session.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -91,19 +96,12 @@ export default function Features() {
             <motion.div
               key={feature.title}
               variants={itemVariants}
-              className="group relative p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300"
             >
-              <div
-                className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${feature.gradient} mb-4`}
-                style={{ opacity: 0.15 }}
-              >
-                <feature.icon className={`w-6 h-6`} style={{ opacity: 1 }} />
+              <div className={`inline-flex p-2.5 rounded-lg bg-gradient-to-br ${feature.gradient} bg-opacity-10 mb-4`} style={{ background: `linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))` }}>
+                <feature.icon className={`w-5 h-5 ${feature.iconColor}`} />
               </div>
-              <div className={`inline-flex p-3 rounded-lg mb-4 absolute top-6 left-6`}>
-                <feature.icon className={`w-6 h-6 bg-gradient-to-br ${feature.gradient} bg-clip-text`} style={{ color: "currentColor" }} />
-              </div>
-
-              <h3 className="text-lg font-semibold mb-2 mt-8">{feature.title}</h3>
+              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
                 {feature.description}
               </p>

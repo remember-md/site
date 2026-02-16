@@ -7,31 +7,31 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "What is REMEMBER.md?",
-    a: "REMEMBER.md is an open standard — a single markdown file that tells AI tools what to capture, how to process it, and where to store it. Think of it like .editorconfig for AI memory. Any AI tool can read and respect it.",
+    a: "A markdown file that tells AI what to remember about you. It defines your capture rules, language preferences, and organization structure. Think of it like .editorconfig — but for AI memory.",
   },
   {
-    q: "Is this just for the Remember plugin?",
-    a: "No. REMEMBER.md is an open standard that any AI tool can implement. The Remember plugin for Claude Code is the reference implementation — the first tool built on the standard — but the spec is designed to be universal.",
+    q: "Is this free?",
+    a: "Yes. MIT licensed, free forever. No subscription, no premium tier, no hidden costs. The code is open source on GitHub.",
   },
   {
-    q: "What's the difference between REMEMBER.md and Persona.md?",
-    a: "REMEMBER.md is prescriptive — it's YOUR instructions to the AI about what to capture and how to organize it. Persona.md is descriptive — it's what the AI has observed and learned about you over time. You write REMEMBER.md; the AI writes Persona.md.",
+    q: "Does it work without the plugin?",
+    a: "Yes! REMEMBER.md is just a markdown file. Any AI can read it if you include it in context. The plugin automates the capture process, but the file format works anywhere.",
   },
   {
-    q: "Is Remember (the plugin) free?",
-    a: "Yes. MIT licensed, free forever. No subscription, no hidden costs, no premium tier. The code is open source on GitHub.",
+    q: "Where does my data go?",
+    a: "Nowhere. Everything stays on your machine as plain markdown files. No cloud, no sync, no telemetry. Your data never leaves your computer.",
   },
   {
-    q: "Can I use REMEMBER.md without the plugin?",
-    a: "Absolutely. REMEMBER.md is just a markdown file — it's a standard, not a product. Any AI tool can parse and implement it. The spec is simple enough to add support in under 50 lines of code.",
+    q: "Does it work with Obsidian?",
+    a: "Yes, fully compatible. Standard Markdown with [[wikilinks]] and YAML frontmatter. Your second brain works seamlessly as an Obsidian vault with graph view and everything.",
   },
   {
-    q: "What if my AI tool doesn't support REMEMBER.md?",
-    a: "You can request support from the tool maker, or contribute an implementation yourself. The spec is designed to be trivial to parse — it's just markdown headers and content.",
+    q: "What's Persona.md?",
+    a: "An AI-maintained file that learns your patterns automatically. While REMEMBER.md is your instructions to the AI (prescriptive), Persona.md is what the AI has observed about you (descriptive) — your code style, preferences, and workflow patterns.",
   },
   {
-    q: "Will REMEMBER.md break between versions?",
-    a: "No. We guarantee no breaking changes. The spec is additive only — new sections may be added, but existing sections will never change their meaning or be removed.",
+    q: "Can I use it per-project?",
+    a: "Yes! Global REMEMBER.md (~/remember/REMEMBER.md) sets universal preferences. Project-level REMEMBER.md (./REMEMBER.md) adds project-specific rules. They cascade — project rules extend global rules.",
   },
 ];
 
@@ -89,7 +89,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-32 px-6">
+    <section id="faq" className="py-24 md:py-32 px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -104,9 +104,6 @@ export default function FAQ() {
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Frequently asked questions
           </h2>
-          <p className="text-zinc-400 text-lg">
-            About the standard and the plugin.
-          </p>
         </motion.div>
 
         <div className="border-t border-white/5">

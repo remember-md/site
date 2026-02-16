@@ -14,36 +14,43 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://remember.md"),
-  title: "REMEMBER.md — The Open Standard for AI Memory",
-  description: "A single markdown file that tells AI tools what to capture, how to process it, and where to store it. Open standard. Pure markdown. Any AI tool.",
-  keywords: ["REMEMBER.md", "AI memory", "open standard", "markdown", "claude code", "AI knowledge", "second brain", "plugin", "knowledge management", "PKM", "specification"],
+  title: "Remember — Never Lose Knowledge from AI Sessions Again",
+  description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local second brain that grows with every conversation. Free, open source, private.",
+  keywords: ["REMEMBER.md", "AI memory", "second brain", "knowledge management", "claude code plugin", "AI knowledge capture", "local-first", "markdown", "PKM", "obsidian compatible"],
   robots: "index, follow",
   category: "developer tools",
   alternates: {
     canonical: "https://remember.md",
   },
   openGraph: {
-    title: "REMEMBER.md — The Open Standard for AI Memory",
-    description: "A single markdown file that tells AI tools what to capture, how to process it, and where to store it. Open standard. Pure markdown. Any AI tool.",
+    title: "Remember — Never Lose Knowledge from AI Sessions Again",
+    description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local second brain. Free. Local. Open Source.",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "REMEMBER.md — The Open Standard for AI Memory" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Remember — AI Second Brain" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@gabifratica",
     creator: "@gabifratica",
-    title: "REMEMBER.md — The Open Standard for AI Memory",
-    description: "A single markdown file that tells AI tools what to capture, how to process it, and where to store it.",
+    title: "Remember — Never Lose Knowledge from AI Sessions Again",
+    description: "Your AI forgets everything after each session. Remember captures it all into a local second brain. Free. Open source.",
     images: ["/og-image.jpg"],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "REMEMBER.md",
-  description: "The open standard for AI memory. A single markdown file that tells AI tools what to capture, how to process it, and where to store it.",
+  "@type": "SoftwareApplication",
+  name: "Remember",
+  description: "Never lose knowledge from AI sessions again. Remember captures decisions, people, insights, and lessons into a local second brain that grows with every conversation.",
   url: "https://remember.md",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Any",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
   author: { "@type": "Person", name: "Gabriel Fratica", url: "https://twitter.com/gabifratica" },
 };
 

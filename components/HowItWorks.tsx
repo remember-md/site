@@ -1,61 +1,75 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileEdit, Cpu, FolderOpen } from "lucide-react";
+import { FileEdit, Download, Zap } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     icon: FileEdit,
     title: "Create REMEMBER.md",
-    description: "Add a REMEMBER.md file to your project or brain root. Define what to capture, what to skip, and how to organize.",
+    time: "30 seconds",
+    description:
+      "Define what to capture, what to skip, and how to organize. Global rules for all projects, or per-project overrides.",
+    bullets: [
+      "Global: ~/remember/REMEMBER.md for universal preferences",
+      "Per-project: ./REMEMBER.md for project-specific rules",
+      "Or use our generator below",
+    ],
     code: `# REMEMBER.md
 
 ## Capture Rules
 ### Always Capture
 - Decisions with rationale
-- Meeting notes and attendees
+- People and their roles
+- Lessons learned
 
 ### Never Capture
-- Debugging sessions
-- Casual greetings`,
+- Debugging trial-and-error
+- Routine code generation`,
   },
   {
     number: "02",
-    icon: Cpu,
-    title: "Your AI reads it",
-    description: "When capturing knowledge, your AI tool checks REMEMBER.md. Your rules are applied before defaults — your preferences always win.",
-    code: `# What happens under the hood:
+    icon: Download,
+    title: "Install Remember",
+    time: "1 minute",
+    description:
+      "Add the plugin to Claude Code. It reads your REMEMBER.md and starts capturing automatically.",
+    bullets: [
+      "Also works as an OpenClaw skill",
+      "Cursor & Copilot support coming soon",
+    ],
+    code: `# Claude Code
+/plugin marketplace add remember-md/marketplace
+/plugin install remember
 
-1. AI tool detects knowledge worth saving
-2. Checks for REMEMBER.md at project root
-3. Parses your capture rules
-4. Applies YOUR rules before defaults
-5. Processes content accordingly`,
+# Initialize your second brain
+/remember:init`,
   },
   {
     number: "03",
-    icon: FolderOpen,
-    title: "Knowledge organized your way",
-    description: "Content is routed, formatted, and tagged per your instructions. Works with any compatible tool — no vendor lock-in.",
-    code: `# Result:
+    icon: Zap,
+    title: "Work normally. Knowledge accumulates.",
+    time: "Ongoing",
+    description:
+      "Just work as usual. Knowledge is captured in the background. Your second brain grows automatically.",
+    bullets: [
+      'Say "remember this: ..." for instant capture',
+      "Run /remember:process to extract from past sessions",
+      "Your second brain grows automatically",
+    ],
+    code: `> remember this: we chose Postgres over MongoDB
+  because of ACID compliance requirements
 
-second-brain/
-├── Decisions/
-│   └── auth-database-choice.md
-├── Projects/
-│   └── auth-service/
-│       └── auth-service.md
-├── People/
-│   └── sarah-chen.md
-└── Journal/
-    └── 2025-02-15.md`,
+✓ Captured to Notes/decision-database.md
+✓ Updated Projects/auth-service.md
+✓ Linked People/sarah.md`,
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-32 px-6 relative">
+    <section id="how-it-works" className="py-24 md:py-32 px-6 relative">
       <div className="absolute inset-0 gradient-mesh opacity-50" />
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
@@ -64,19 +78,17 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            How it works
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">How it works</h2>
           <p className="text-zinc-400 text-lg">
-            Three steps. Zero friction. Any AI tool.
+            Three steps. Five minutes. Knowledge that lasts forever.
           </p>
         </motion.div>
 
-        <div className="space-y-24">
+        <div className="space-y-20 md:space-y-24">
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
-              className="flex flex-col lg:flex-row items-start gap-12"
+              className="flex flex-col lg:flex-row items-start gap-10 lg:gap-12"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -89,10 +101,21 @@ export default function HowItWorks() {
                   </span>
                   <step.icon className="w-6 h-6 text-purple-400" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                <p className="text-zinc-400 leading-relaxed max-w-md">
+                <h3 className="text-2xl font-bold mb-1">{step.title}</h3>
+                <span className="text-xs font-mono text-purple-400 mb-4 inline-block">
+                  {step.time}
+                </span>
+                <p className="text-zinc-400 leading-relaxed max-w-md mb-4">
                   {step.description}
                 </p>
+                <ul className="space-y-2">
+                  {step.bullets.map((bullet, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-zinc-500">
+                      <span className="w-1 h-1 rounded-full bg-zinc-600 mt-2 flex-shrink-0" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className="flex-1 w-full">

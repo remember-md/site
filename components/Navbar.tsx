@@ -1,9 +1,18 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+const links = [
+  { label: "How it Works", href: "#how-it-works" },
+  { label: "Features", href: "#features" },
+  { label: "Get Started", href: "#get-started" },
+];
 
 export default function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#09090b]/80 backdrop-blur-xl"
@@ -13,30 +22,72 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="font-bold text-lg flex items-center gap-2">
-          <span className="w-6 h-6 rounded bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-xs font-bold">
+          <span className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-xs font-bold">
             R
           </span>
           Remember
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
-          <a href="#spec" className="hover:text-white transition-colors">Spec</a>
-          <a href="#plugin" className="hover:text-white transition-colors">Plugin</a>
-          <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
-          <a href="#comparison" className="hover:text-white transition-colors">Compare</a>
-          <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="hover:text-white transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        <a
-          href="https://github.com/remember-md"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-sm hover:bg-white/5 transition-colors"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Github className="w-4 h-4" />
-          GitHub
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="#get-started"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 text-sm font-medium hover:from-purple-500 hover:to-violet-500 transition-all"
+          >
+            Install Plugin
+          </a>
+
+          <button
+            className="md:hidden p-2 text-zinc-400 hover:text-white"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden border-t border-white/5 bg-[#09090b]/95 backdrop-blur-xl overflow-hidden"
+          >
+            <div className="px-6 py-4 space-y-3">
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="block text-zinc-400 hover:text-white transition-colors py-2"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="#get-started"
+                className="block w-full text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 text-sm font-medium mt-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                Install Plugin
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
