@@ -1,50 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Brain, Layers, Shield, BookOpen, Settings2 } from "lucide-react";
+import { Workflow, FileCode2, Zap, GitFork } from "lucide-react";
 
 const features = [
   {
-    icon: Target,
-    title: "100% Deterministic Capture",
+    icon: Zap,
+    title: "Hooks, not magic",
     description:
-      "Hooks-based architecture. Every capture is reliable, inspectable, and predictable. No black-box AI guessing.",
-    iconColor: "text-emerald-400",
-  },
-  {
-    icon: Brain,
-    title: "Adaptive Persona",
-    description:
-      "Persona.md learns your code style, communication patterns, and workflow preferences. Loaded every session.",
-    iconColor: "text-purple-400",
-  },
-  {
-    icon: Layers,
-    title: "Bulk Processing",
-    description:
-      "Extract knowledge from past sessions retroactively. Process months of conversations in minutes.",
-    iconColor: "text-blue-400",
-  },
-  {
-    icon: Shield,
-    title: "Local-First Privacy",
-    description:
-      "Plain markdown files on your machine. No cloud. No sync. No telemetry. Your data never leaves.",
-    iconColor: "text-rose-400",
-  },
-  {
-    icon: BookOpen,
-    title: "Obsidian Compatible",
-    description:
-      "PARA + Zettelkasten structure with wikilinks, YAML frontmatter, and graph view. Works with Obsidian, Logseq, or any editor.",
+      "Deterministic capture via OpenClaw and Claude Code hooks. Every write is predictable, inspectable, and version-controlled. No black-box AI deciding what to save.",
     iconColor: "text-amber-400",
   },
   {
-    icon: Settings2,
-    title: "Customizable",
+    icon: FileCode2,
+    title: "Plain markdown. Full control.",
     description:
-      "Add a REMEMBER.md to control what gets captured, how content is routed, and define your own rules.",
-    iconColor: "text-cyan-400",
+      "YAML frontmatter, wikilinks, standard file structure. grep it, git it, script it — your brain is just files.",
+    iconColor: "text-emerald-400",
+  },
+  {
+    icon: Workflow,
+    title: "Persona that evolves",
+    description:
+      "Persona.md learns your code style, naming conventions, and review preferences. Loaded every OpenClaw and Claude Code session — your AI stops asking the same questions.",
+    iconColor: "text-purple-400",
+  },
+  {
+    icon: GitFork,
+    title: "Project-level overrides",
+    description:
+      "Drop a REMEMBER.md in any repo to control capture rules, templates, and routing. Global defaults + per-project config.",
+    iconColor: "text-blue-400",
   },
 ];
 
@@ -62,8 +48,8 @@ const itemVariants = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 md:py-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="features" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -71,16 +57,16 @@ export default function Features() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Built different
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
+            Built for developers
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Not another note-taking app. A knowledge engine for your AI sessions.
+            More than memory. A structured second brain you own, browse, and take anywhere.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -92,15 +78,9 @@ export default function Features() {
               variants={itemVariants}
               className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300"
             >
-              <div
-                className="inline-flex p-2.5 rounded-lg mb-4"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))",
-                }}
-              >
-                <feature.icon className={`w-5 h-5 ${feature.iconColor}`} />
-              </div>
+              <feature.icon
+                className={`w-5 h-5 ${feature.iconColor} mb-4`}
+              />
               <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
                 {feature.description}

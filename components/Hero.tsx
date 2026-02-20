@@ -1,18 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Shield, Code2, BookOpen, Heart } from "lucide-react";
+import { Player } from "@remotion/player";
+import { HeroAnimation } from "../remotion/HeroAnimation";
+import { ArrowRight, Github, Code2, Shield, BookOpen, Heart } from "lucide-react";
 
 const stats = [
-  { icon: Shield, label: "100% local" },
   { icon: Code2, label: "Open source" },
-  { icon: BookOpen, label: "Obsidian compatible" },
+  { icon: Shield, label: "100% local" },
+  { icon: BookOpen, label: "Obsidian native" },
   { icon: Heart, label: "Free forever" },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden gradient-mesh">
+    <section className="relative overflow-hidden gradient-mesh">
       {/* Subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -21,93 +23,84 @@ export default function Hero() {
         }}
       />
 
-      {/* Fade-out particles animation */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-24 sm:pt-28 pb-12 sm:pb-16">
+        {/* Text — centered */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-purple-400/30"
-            style={{
-              left: `${20 + i * 12}%`,
-              top: `${30 + (i % 3) * 15}%`,
-            }}
-            animate={{
-              y: [0, -40, -80],
-              opacity: [0.6, 0.3, 0],
-              scale: [1, 0.8, 0.4],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              delay: i * 0.8,
-              ease: "easeOut",
-            }}
-          />
-        ))}
-      </div>
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-400 mb-6">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Claude Code · OpenClaw · Cursor & more
+            </div>
+          </motion.div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20 text-center">
+          <motion.h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+          >
+            <span className="text-white">One brain.</span>{" "}
+            <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">
+              Every AI tool.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.16 }}
+          >
+            A second brain for OpenClaw and Claude Code. Organize knowledge
+            from your AI sessions — past and future — into a structured,
+            Obsidian-compatible knowledge base.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.24 }}
+          >
+            <a
+              href="https://github.com/remember-md/remember"
+              className="group inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="w-4 h-4" />
+              View on GitHub
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Demo — Remotion terminal, hidden on very small screens */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="relative max-w-4xl mx-auto hidden sm:block"
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-400 mb-8">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Open Source · MIT Licensed
+          {/* Glow behind the terminal */}
+          <div className="absolute -inset-4 bg-gradient-to-b from-purple-500/10 via-violet-500/5 to-transparent rounded-2xl blur-2xl pointer-events-none" />
+
+          <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-900/20">
+            <Player
+              component={HeroAnimation}
+              durationInFrames={300}
+              compositionWidth={640}
+              compositionHeight={400}
+              fps={30}
+              autoPlay
+              loop
+              style={{ width: "100%", height: "auto", aspectRatio: "640/400" }}
+            />
           </div>
-        </motion.div>
-
-        <motion.h1
-          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <span className="text-white">Your AI learns everything</span>
-          <br />
-          <span className="text-white">about your work.</span>
-          <br />
-          <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-blue-400 bg-clip-text text-transparent">
-            Then forgets it all.
-          </span>
-        </motion.h1>
-
-        <motion.p
-          className="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-        >
-          Remember builds a Second Brain from your AI sessions —{" "}
-          <span className="text-zinc-200 font-medium">
-            decisions, people, insights, tasks
-          </span>{" "}
-          — all auto-organized.
-        </motion.p>
-
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-        >
-          <a
-            href="#install"
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white text-black font-medium hover:bg-zinc-200 transition-colors"
-          >
-            Install Free
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="https://github.com/remember-md/remember"
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-white/10 text-zinc-300 hover:bg-white/5 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className="w-4 h-4" />
-            View on GitHub
-          </a>
         </motion.div>
       </div>
 
@@ -116,19 +109,19 @@ export default function Hero() {
         className="relative z-10 w-full border-t border-white/5 bg-white/[0.02] backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
       >
-        <div className="max-w-4xl mx-auto py-5 px-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto py-4 px-6 sm:px-8 lg:px-12 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-between gap-y-3 gap-x-4">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              className="flex items-center justify-center gap-2.5 text-sm"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+              className="flex items-center gap-2 text-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.65 + i * 0.08 }}
             >
-              <stat.icon className="w-4 h-4 text-purple-400 flex-shrink-0" />
-              <span className="text-zinc-300 font-medium">{stat.label}</span>
+              <stat.icon className="w-4 h-4 text-purple-400/80 flex-shrink-0" />
+              <span className="text-zinc-400 font-medium">{stat.label}</span>
             </motion.div>
           ))}
         </div>

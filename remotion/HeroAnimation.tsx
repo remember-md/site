@@ -1,21 +1,20 @@
-import { AbsoluteFill, useCurrentFrame, interpolate, spring, useVideoConfig, Sequence } from "remotion";
+import { AbsoluteFill, useCurrentFrame, interpolate, spring, useVideoConfig } from "remotion";
 
 const LINES = [
   { text: "$ claude", color: "#a6e3a1", delay: 0 },
-  { text: '> "Remember: we decided to use PostgreSQL', color: "#cdd6f4", delay: 30 },
-  { text: '   for the auth service because of...', color: "#cdd6f4", delay: 45 },
-  { text: "", color: "", delay: 60 },
-  { text: "✓ Hook triggered: remember", color: "#f9e2af", delay: 80 },
-  { text: "  → Writing to second-brain/Decisions/", color: "#89b4fa", delay: 95 },
-  { text: "  → Created: auth-database-choice.md", color: "#a6e3a1", delay: 110 },
-  { text: "  → Linked: [[Projects/auth-service]]", color: "#cba6f7", delay: 125 },
-  { text: "", color: "", delay: 140 },
-  { text: "✓ Captured in 12ms", color: "#a6e3a1", delay: 155 },
+  { text: '> remember this: met Sarah, she prefers', color: "#cdd6f4", delay: 25 },
+  { text: '  JWT over OAuth for internal APIs', color: "#cdd6f4", delay: 40 },
+  { text: "", color: "", delay: 55 },
+  { text: "✓ Brain dump detected", color: "#f9e2af", delay: 70 },
+  { text: "  → Updated People/sarah-chen.md", color: "#89b4fa", delay: 85 },
+  { text: "  → Created Notes/decision-auth.md", color: "#a6e3a1", delay: 100 },
+  { text: "  → Linked [[Projects/auth-service]]", color: "#cba6f7", delay: 115 },
+  { text: "", color: "", delay: 130 },
+  { text: "✓ Saved to brain in 49ms", color: "#a6e3a1", delay: 145 },
 ];
 
 function TerminalLine({ text, color, startFrame }: { text: string; color: string; startFrame: number }) {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   if (frame < startFrame) return null;
 
@@ -66,26 +65,48 @@ function BrainNode({ x, y, label, delay }: { x: number; y: number; label: string
   );
 }
 
-function ConnectionLine({ x1, y1, x2, y2, delay }: { x1: number; y1: number; x2: number; y2: number; delay: number }) {
+// L-shaped tree connector like a file explorer: vertical down then horizontal right
+function TreeLine({ x, y1, y2, indent, delay }: { x: number; y1: number; y2: number; indent: number; delay: number }) {
   const frame = useCurrentFrame();
   if (frame < delay) return null;
 
-  const progress = interpolate(frame - delay, [0, 20], [0, 1], { extrapolateRight: "clamp" });
+  const opacity = interpolate(frame - delay, [0, 10], [0, 1], { extrapolateRight: "clamp" });
 
   return (
     <svg
-      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", opacity }}
     >
-      <line
-        x1={x1}
-        y1={y1}
-        x2={x1 + (x2 - x1) * progress}
-        y2={y1 + (y2 - y1) * progress}
-        stroke="rgba(139, 92, 246, 0.3)"
-        strokeWidth={1}
-        strokeDasharray="4,4"
-      />
+      {/* Vertical line down */}
+      <line x1={x} y1={y1} x2={x} y2={y2} stroke="rgba(139, 92, 246, 0.25)" strokeWidth={1} />
+      {/* Horizontal line right to child */}
+      <line x1={x} y1={y2} x2={x + indent} y2={y2} stroke="rgba(139, 92, 246, 0.25)" strokeWidth={1} />
     </svg>
+  );
+}
+
+// Pulse ring for the "brain active" indicator
+function PulseRing({ delay }: { delay: number }) {
+  const frame = useCurrentFrame();
+  if (frame < delay) return null;
+
+  const localFrame = (frame - delay) % 60;
+  const scale = interpolate(localFrame, [0, 60], [1, 2.5]);
+  const opacity = interpolate(localFrame, [0, 60], [0.4, 0]);
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        right: 14,
+        top: 10,
+        width: 8,
+        height: 8,
+        borderRadius: "50%",
+        border: "1px solid rgba(167, 139, 250, 0.5)",
+        transform: `scale(${scale})`,
+        opacity,
+      }}
+    />
   );
 }
 
@@ -93,8 +114,8 @@ export const HeroAnimation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Flash effect when hook triggers
-  const flashOpacity = frame >= 80 && frame <= 90
-    ? interpolate(frame, [80, 85, 90], [0, 0.15, 0])
+  const flashOpacity = frame >= 70 && frame <= 80
+    ? interpolate(frame, [70, 75, 80], [0, 0.12, 0])
     : 0;
 
   return (
@@ -104,7 +125,7 @@ export const HeroAnimation: React.FC = () => {
         <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57" }} />
         <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e" }} />
         <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840" }} />
-        <span style={{ marginLeft: 12, fontSize: 12, color: "#6c7086", fontFamily: "monospace" }}>claude-code — terminal</span>
+        <span style={{ marginLeft: 12, fontSize: 12, color: "#6c7086", fontFamily: "monospace" }}>remember.md — one brain, every AI tool</span>
       </div>
 
       {/* Flash overlay */}
@@ -127,7 +148,7 @@ export const HeroAnimation: React.FC = () => {
 
         {/* Brain side */}
         <div style={{
-          width: 200,
+          width: 220,
           borderLeft: "1px solid rgba(255,255,255,0.06)",
           position: "relative",
           overflow: "hidden",
@@ -138,17 +159,33 @@ export const HeroAnimation: React.FC = () => {
             color: "#6c7086",
             fontFamily: "monospace",
             borderBottom: "1px solid rgba(255,255,255,0.06)",
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
           }}>
-            second-brain/
+            <span>~/remember/</span>
+            {frame >= 70 && (
+              <span style={{
+                width: 6, height: 6, borderRadius: "50%",
+                background: "#a6e3a1",
+                display: "inline-block",
+              }} />
+            )}
           </div>
 
-          <BrainNode x={20} y={50} label="📁 Decisions" delay={100} />
-          <BrainNode x={30} y={95} label="📄 auth-db.md" delay={115} />
-          <BrainNode x={20} y={150} label="📁 Projects" delay={130} />
-          <BrainNode x={30} y={195} label="📄 auth-service" delay={140} />
+          <PulseRing delay={70} />
 
-          <ConnectionLine x1={90} y1={115} x2={90} y2={155} delay={145} />
-          <ConnectionLine x1={70} y1={75} x2={70} y2={100} delay={120} />
+          <BrainNode x={14} y={50} label="People/" delay={80} />
+          <BrainNode x={28} y={85} label="sarah-chen.md" delay={90} />
+          <BrainNode x={14} y={130} label="Notes/" delay={95} />
+          <BrainNode x={28} y={165} label="decision-auth.md" delay={105} />
+          <BrainNode x={14} y={210} label="Projects/" delay={110} />
+          <BrainNode x={28} y={245} label="auth-service/" delay={120} />
+
+          {/* Tree lines: folder → child (L-shaped like file explorer) */}
+          <TreeLine x={22} y1={72} y2={97} indent={6} delay={90} />
+          <TreeLine x={22} y1={152} y2={177} indent={6} delay={105} />
+          <TreeLine x={22} y1={232} y2={257} indent={6} delay={120} />
         </div>
       </div>
     </AbsoluteFill>

@@ -14,26 +14,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://remember.md"),
-  title: "Remember — AI-Powered Second Brain That Builds Itself",
-  description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local PARA-based second brain that grows with every conversation. Free, open source, Obsidian compatible.",
-  keywords: ["AI second brain", "PARA method", "Zettelkasten", "PKM", "personal knowledge management", "AI memory", "knowledge capture", "claude code plugin", "local-first", "markdown", "obsidian compatible", "REMEMBER.md"],
+  title: "Remember.md — Second Brain Plugin for OpenClaw & Claude Code",
+  description: "Remember.md is a second brain plugin for OpenClaw and Claude Code. It organizes decisions, people, projects, and insights from your AI coding sessions into a structured, Obsidian-compatible knowledge base. Portable across AI tools. Free and open source.",
+  keywords: ["OpenClaw plugin", "OpenClaw second brain", "OpenClaw knowledge base", "best OpenClaw plugins", "Claude Code plugin", "Claude Code second brain", "AI second brain", "AI knowledge base", "second brain for developers", "Obsidian knowledge base", "portable AI brain", "local-first", "PARA method", "Zettelkasten", "markdown knowledge base", "AI coding assistant"],
   robots: "index, follow",
   category: "developer tools",
   alternates: {
     canonical: "https://remember.md",
   },
   openGraph: {
-    title: "Remember — AI-Powered Second Brain That Builds Itself",
-    description: "Your AI forgets everything after each session. Remember captures decisions, people, insights, and lessons into a local PARA-based second brain. Free. Local. Open Source.",
+    title: "Remember.md — Second Brain for OpenClaw & Claude Code",
+    description: "Second brain plugin for OpenClaw and Claude Code. Organize knowledge from past and future AI sessions into a portable, Obsidian-compatible knowledge base. Free and open source.",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Remember — AI Second Brain" }],
+    images: [{ url: "/og-image.jpg", width: 1280, height: 720, alt: "Remember.md — Second Brain Plugin for OpenClaw and Claude Code" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@gabifratica",
     creator: "@gabifratica",
-    title: "Remember — AI-Powered Second Brain That Builds Itself",
-    description: "Your AI forgets everything after each session. Remember captures it all into a local PARA-based second brain. Free. Open source.",
+    title: "Remember.md — Second Brain for OpenClaw & Claude Code",
+    description: "Second brain plugin for OpenClaw and Claude Code. Organize knowledge from AI sessions into a portable Obsidian vault. Free. Open source.",
     images: ["/og-image.jpg"],
   },
 };
@@ -41,17 +41,24 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Remember",
-  description: "AI-powered second brain that builds itself. Remember captures decisions, people, insights, and lessons from AI sessions into a PARA + Zettelkasten knowledge base. Local, free, Obsidian compatible.",
+  name: "Remember.md",
+  alternateName: "Remember",
+  description: "Remember.md is a second brain plugin for OpenClaw and Claude Code that organizes decisions, people, projects, and insights from AI coding sessions into a structured, Obsidian-compatible knowledge base. It supports processing historical sessions retroactively and connects knowledge using PARA methodology with wikilinks.",
   url: "https://remember.md",
   applicationCategory: "DeveloperApplication",
-  operatingSystem: "Any",
+  applicationSubCategory: "AI Coding Plugin",
+  operatingSystem: "macOS, Linux, Windows",
+  softwareRequirements: "OpenClaw or Claude Code",
+  releaseNotes: "Full OpenClaw and Claude Code support. Second brain with retroactive session processing.",
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
   },
   author: { "@type": "Person", name: "Gabriel Fratica", url: "https://twitter.com/gabifratica" },
+  license: "https://opensource.org/licenses/MIT",
+  isAccessibleForFree: true,
+  keywords: "OpenClaw plugin, Claude Code plugin, AI second brain, knowledge base, Obsidian, developer tools",
 };
 
 export default function RootLayout({

@@ -60,16 +60,16 @@ const itemVariants = {
 
 export default function WhatYouGet() {
   return (
-    <section className="py-24 md:py-32 px-6 relative">
+    <section className="py-16 md:py-24 px-6 sm:px-8 lg:px-12 relative">
       <div className="absolute inset-0 gradient-mesh opacity-50" />
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">
             This is what your brain looks like{" "}
             <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
               after one week.
@@ -88,9 +88,9 @@ export default function WhatYouGet() {
             <motion.div
               key={card.filename}
               variants={itemVariants}
-              className="code-editor p-5 hover:border-white/15 transition-all duration-300"
+              className="code-editor p-3 sm:p-5 hover:border-white/15 transition-all duration-300"
             >
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
                 <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
                 <div className="w-3 h-3 rounded-full bg-[#28c840]" />
@@ -98,7 +98,7 @@ export default function WhatYouGet() {
                   {card.filename}
                 </span>
               </div>
-              <pre className="text-sm text-zinc-300 font-mono leading-relaxed overflow-x-auto whitespace-pre-wrap">
+              <pre className="text-xs sm:text-sm text-zinc-300 font-mono leading-relaxed overflow-x-auto whitespace-pre-wrap">
                 <code>{card.content}</code>
               </pre>
             </motion.div>
@@ -106,14 +106,14 @@ export default function WhatYouGet() {
         </motion.div>
 
         <motion.p
-          className="text-center text-lg text-zinc-400 mt-12"
+          className="text-center text-base sm:text-lg text-zinc-400 mt-8 sm:mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
           <span className="text-zinc-200 font-medium">47 notes, 12 people tracked, 5 project files</span>{" "}
-          — auto-organized using PARA + Zettelkasten methodology. Zero manual filing.
+          — auto-organized into an Obsidian vault from your OpenClaw and Claude Code sessions. Zero manual filing.
         </motion.p>
       </div>
     </section>

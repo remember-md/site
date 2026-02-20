@@ -6,32 +6,56 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "What is Remember?",
-    a: "A plugin for Claude Code that builds a Second Brain from your AI sessions. Decisions, people, insights, tasks — auto-organized into plain markdown files.",
+    q: "What is Remember.md?",
+    a: "Remember.md is a second brain plugin for OpenClaw and Claude Code. Unlike built-in memory systems that store flat key-value pairs, Remember organizes decisions, people, projects, and tasks into a structured Obsidian-compatible knowledge base with wikilinks, YAML frontmatter, and cross-references. It works as both an OpenClaw plugin and a Claude Code plugin.",
   },
   {
-    q: "Is it free?",
-    a: "Yes, completely. MIT licensed, always free, open source.",
+    q: "How do I install Remember on OpenClaw?",
+    a: "Run 'openclaw plugins install @remember-md/remember' in your terminal, then start a new session and run /remember:init. The plugin registers hooks that load your Persona at session start and agent tools for brain dumps and index lookups. Your second brain is ready in under 60 seconds.",
   },
   {
-    q: "Where does my data go?",
-    a: "Nowhere. Everything stays on your machine as local markdown files. No cloud, no telemetry.",
+    q: "How do I install Remember on Claude Code?",
+    a: "Run '/plugin marketplace add remember-md/marketplace' followed by '/plugin install remember' in Claude Code, then run /remember:init. The plugin uses Claude Code hooks to load your Persona at session start and inject brain context when you say 'remember this'. Same second brain, same knowledge base.",
   },
   {
-    q: "Does it work with Obsidian?",
-    a: "Yes. Wikilinks, YAML frontmatter, graph view — fully compatible.",
+    q: "Can Remember process old sessions?",
+    a: "Yes. Remember can process historical OpenClaw and Claude Code sessions retroactively. Run /remember:process to scan past sessions and extract decisions, people, tasks, and insights into your knowledge base. This works on sessions from months ago.",
   },
   {
-    q: "What is Persona.md?",
-    a: "An AI-maintained file that learns your patterns — code style, communication preferences, workflow habits. Loaded automatically every session.",
+    q: "How does Remember help my AI learn my coding patterns?",
+    a: "Remember maintains a Persona.md file in your second brain that evolves over time. It captures your code style, naming conventions, review preferences, and communication patterns. Persona.md is loaded automatically at the start of every OpenClaw or Claude Code session, so your AI knows how you work without being told each time.",
   },
   {
-    q: "Can I customize what gets captured?",
-    a: "Yes. Add a REMEMBER.md file to control capture rules, routing, and language preferences.",
+    q: "How does Remember track my work history across sessions?",
+    a: "Remember captures work history into structured categories: Journal entries for daily activity, Projects for active work with decision logs, People for contacts and interactions, Notes for architectural decisions, and Tasks for priorities. All files use wikilinks to cross-reference each other, creating a connected work history you can browse in Obsidian.",
+  },
+  {
+    q: "How is Remember different from OpenClaw memory or Claude MEMORY.md?",
+    a: "Built-in memory systems store flat notes or key-value pairs locked inside one tool. Remember builds a structured second brain — People, Projects, Decisions, Tasks, Journal — all connected via wikilinks and browsable in Obsidian. It can process past sessions retroactively, and your brain is portable across AI tools instead of locked into one vendor.",
+  },
+  {
+    q: "Is Remember free?",
+    a: "Yes. Remember.md is MIT licensed, completely free, and open source. There are no paid tiers, no cloud services, and no usage limits.",
+  },
+  {
+    q: "Where does Remember store my data?",
+    a: "All data stays on your local machine as plain markdown files. Remember has no cloud component, no telemetry, and no tracking. The default location is ~/remember. You can version control it with git and open it in Obsidian, VS Code, or any text editor.",
+  },
+  {
+    q: "Does Remember work with Obsidian?",
+    a: "Yes. Remember creates Obsidian-native markdown with wikilinks, YAML frontmatter, and proper folder structure. Your knowledge base is a fully functional Obsidian vault with graph view, backlinks, and search. No Obsidian plugins required.",
+  },
+  {
+    q: "Can I use Remember with both OpenClaw and Claude Code?",
+    a: "Yes. Remember uses one shared second brain across all AI tools. Install the OpenClaw plugin and the Claude Code plugin pointing to the same brain directory. Both tools read and write to the same markdown files, so knowledge captured in OpenClaw is available in Claude Code and vice versa. One brain, every tool.",
   },
   {
     q: "How does Remember organize knowledge?",
-    a: "Using PARA (Projects, Areas, Notes, Resources) combined with Zettelkasten-style linked thinking. Every note connects to related people, projects, and decisions via wikilinks — creating a personal knowledge management system that grows organically.",
+    a: "Remember uses the PARA method (Projects, Areas, Notes, Resources) combined with Zettelkasten-style linked thinking. Every note connects to related people, projects, and decisions via wikilinks. The structure includes People, Projects, Notes, Journal, Tasks, Areas, Resources, and Inbox directories.",
+  },
+  {
+    q: "Can I customize what gets captured?",
+    a: "Yes. Add a REMEMBER.md file to any project to control capture rules, routing, templates, and language preferences. Remember supports cascading configuration: global rules in ~/remember/REMEMBER.md and project-specific overrides in your repo's REMEMBER.md.",
   },
 ];
 
@@ -48,9 +72,9 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-5 text-left group"
+        className="w-full flex items-center justify-between py-4 sm:py-5 text-left group"
       >
-        <span className="text-white font-medium text-lg pr-4 group-hover:text-zinc-200 transition-colors">
+        <span className="text-white font-medium text-base sm:text-lg pr-4 group-hover:text-zinc-200 transition-colors">
           {faq.q}
         </span>
         <motion.span
@@ -69,7 +93,7 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <p className="text-zinc-400 pb-5 leading-relaxed">{faq.a}</p>
+            <p className="text-zinc-400 pb-4 sm:pb-5 text-sm sm:text-base leading-relaxed">{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -89,22 +113,22 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 md:py-32 px-6">
+    <section id="faq" className="py-16 md:py-24 px-6 sm:px-8 lg:px-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Questions</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">Questions</h2>
         </motion.div>
 
-        <div className="border-t border-white/5">
+        <div className="border-t border-white/5 max-w-3xl mx-auto">
           {faqs.map((faq, i) => (
             <FAQItem key={i} faq={faq} index={i} />
           ))}
