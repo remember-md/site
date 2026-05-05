@@ -55,7 +55,23 @@ const faqs = [
   },
   {
     q: "Can I customize what gets captured?",
-    a: "Yes. Add a REMEMBER.md file to any project to control capture rules, routing, templates, and language preferences. Remember supports cascading configuration: global rules in ~/remember/REMEMBER.md and project-specific overrides in your repo's REMEMBER.md.",
+    a: "Yes. Add a REMEMBER.md file to any project to control capture rules, routing, templates, language preferences, and promotion thresholds. Remember supports cascading configuration: global rules in ~/remember/REMEMBER.md and project-specific overrides in your repo's REMEMBER.md.",
+  },
+  {
+    q: "What does /remember:evolve do?",
+    a: "Three phases per run. (1) Consolidate: re-synthesize entity profiles in People/Projects/Areas from accumulated mentions. (2) Reflect: re-score belief confidence based on evidence vs counter-evidence and update the freshness trend (stable / strengthening / weakening / stale / contradicted). (3) Promote: pin the top beliefs to Persona.md ## Top Beliefs based on configurable thresholds (default conf ≥ 0.85, sources ≥ 5). Phase 3 runs deterministically — no LLM cost — so you can cron it freely. Run /loop 7d /remember:evolve to schedule weekly.",
+  },
+  {
+    q: "Will /remember:evolve overwrite my hand-curated Persona?",
+    a: "No. It only manages the ## Top Beliefs section by reference (wikilinks, not copies). Mission, Directives, Disposition, and Evidence Log stay in your hands. To turn off auto-promotion entirely, set 'auto_promote: false' in ~/.local/state/remember/config.json. The init skill also skips Persona.md if it already exists, so customisations are preserved across re-installs.",
+  },
+  {
+    q: "What's the epistemic schema?",
+    a: "Every L2 file (Notes, People, Projects, Areas) carries frontmatter fields the brain understands: type (world-fact / belief / observation / experience), freshness, confidence (for beliefs), sources_count, and an evidence array of {source, quote, date}. This lets evolve weigh beliefs against accumulated evidence and pin the most trustworthy to your Persona. Schema is additive — files without these fields keep working until they're touched, then upgrade lazily.",
+  },
+  {
+    q: "Where's the audit trail?",
+    a: "Every auto-change appends one line to ~/.local/state/remember/evolution.log — ISO-timestamped, one per event (PROMOTE, DEMOTE, CONSOLIDATE, REFLECT, STALE, CONTRADICT). Tail it any time to see what the brain did on its own. /remember:status shows the last entries inline alongside schema breakdowns and top beliefs.",
   },
 ];
 

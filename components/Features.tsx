@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Workflow, FileCode2, Zap, GitFork } from "lucide-react";
+import { Workflow, FileCode2, Zap, GitFork, Brain, ScrollText } from "lucide-react";
 
 const features = [
   {
@@ -19,17 +19,31 @@ const features = [
     iconColor: "text-emerald-400",
   },
   {
-    icon: Workflow,
-    title: "Persona that evolves",
+    icon: Brain,
+    title: "Self-evolving brain",
     description:
-      "Persona.md learns your code style, naming conventions, and review preferences. Loaded every OpenClaw and Claude Code session — your AI stops asking the same questions.",
+      "Beliefs carry confidence and evidence. Run /remember:evolve weekly: entities are re-synthesized, beliefs re-scored against accumulated evidence, top beliefs auto-pinned to your Persona. All deterministic and audited.",
+    iconColor: "text-fuchsia-400",
+  },
+  {
+    icon: Workflow,
+    title: "Persona that learns",
+    description:
+      "Persona.md tracks code style, naming conventions, and review preferences. Loaded every session — your AI stops asking the same questions.",
     iconColor: "text-purple-400",
+  },
+  {
+    icon: ScrollText,
+    title: "Auditable evolution",
+    description:
+      "Every auto-change writes one line to ~/.local/state/remember/evolution.log — promotions, demotions, freshness flips. Tail it, diff it, or run /remember:status for the inline view.",
+    iconColor: "text-cyan-400",
   },
   {
     icon: GitFork,
     title: "Project-level overrides",
     description:
-      "Drop a REMEMBER.md in any repo to control capture rules, templates, and routing. Global defaults + per-project config.",
+      "Drop a REMEMBER.md in any repo to control capture rules, templates, routing, and promotion thresholds. Global defaults + per-project config.",
     iconColor: "text-blue-400",
   },
 ];
