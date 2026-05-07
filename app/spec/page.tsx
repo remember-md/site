@@ -33,9 +33,9 @@ export default function SpecPage() {
           <code className="text-fuchsia-300">AGENTS.md</code> tells your AI{" "}
           <em>how to work</em>.{" "}
           <code className="text-fuchsia-300">REMEMBER.md</code> tells your AI{" "}
-          <em>how to remember</em>. Together with{" "}
-          <code className="text-fuchsia-300">llms.txt</code>, they form the
-          markdown trio for portable, tool-agnostic AI configuration.
+          <em>how to remember</em>. Together they form the markdown duo for
+          portable, tool-agnostic AI configuration — one file for behaviour,
+          one for memory, both human-readable and version-controllable.
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-3">Core rules</h2>
