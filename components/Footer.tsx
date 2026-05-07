@@ -40,12 +40,12 @@ export default function Footer() {
         <p className="text-zinc-600 text-xs">
           Made by{" "}
           <a
-            href="https://github.com/remember-md"
+            href="https://github.com/codezz"
             className="text-zinc-500 hover:text-zinc-400 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            remember-md
+            codezz
           </a>
         </p>
       </div>

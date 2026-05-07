@@ -77,10 +77,6 @@ const faqs = [
     q: "What's the epistemic schema?",
     a: "Every L2 file (Notes, People, Projects, Areas) carries frontmatter fields the brain understands: type (world-fact / belief / observation / experience), freshness, confidence (for beliefs), sources_count, and an evidence array of {source, quote, date}. This lets evolve weigh beliefs against accumulated evidence and pin the most trustworthy to your Persona. Schema is additive — files without these fields keep working until they're touched, then upgrade lazily.",
   },
-  {
-    q: "Where's the audit trail?",
-    a: "Every auto-change appends one line to ~/.local/state/remember/evolution.log — ISO-timestamped, one per event (PROMOTE, DEMOTE, CONSOLIDATE, REFLECT, STALE, CONTRADICT). Tail it any time to see what the brain did on its own. /remember:status shows the last entries inline alongside schema breakdowns and top beliefs.",
-  },
 ];
 
 function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
