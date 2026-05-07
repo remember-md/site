@@ -22,14 +22,14 @@ const features = [
     icon: Brain,
     title: "Self-evolving brain",
     description:
-      "Beliefs carry confidence and evidence. Run /remember:evolve weekly: entities are re-synthesized, beliefs re-scored against accumulated evidence, top beliefs auto-pinned to your Persona. All deterministic and audited.",
+      "Top beliefs auto-pin to your Persona at capture time — zero cron, zero waiting. Bootstrap mode lands your very first capture in Persona immediately. Run /remember:evolve weekly to add LLM-driven entity synthesis and belief reflection.",
     iconColor: "text-fuchsia-400",
   },
   {
     icon: Workflow,
     title: "Persona that learns",
     description:
-      "Persona.md tracks code style, naming conventions, and review preferences. Loaded every session — your AI stops asking the same questions.",
+      "Persona.md tracks code style, naming conventions, and review preferences. Loaded every session — your AI stops asking the same questions. Top Beliefs section refreshes automatically as your brain grows.",
     iconColor: "text-purple-400",
   },
   {

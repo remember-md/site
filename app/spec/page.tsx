@@ -124,10 +124,11 @@ def parse_remember_md(path):
           ) is the canonical engine. It ships:
         </p>
         <ul className="text-zinc-300 list-disc pl-6 space-y-2 leading-relaxed">
-          <li>A SessionStart hook that loads <code>Persona.md</code></li>
-          <li>A capture skill triggered by phrases like &quot;remember this:&quot;</li>
+          <li>A SessionStart hook that loads <code>Persona.md</code> and an AI-driven passive capture nudge</li>
+          <li>A capture skill triggered by phrases like &quot;remember this:&quot; with live polarity check (positive evidence vs counter-evidence)</li>
           <li>A bulk-extraction skill for retroactive session processing</li>
-          <li>An <code>evolve</code> skill that consolidates entities, reflects on beliefs, and promotes top beliefs to Persona</li>
+          <li>Auto-promote at capture time so <code>Persona.md ## Top Beliefs</code> stays in sync without cron, with bootstrap thresholds for cold-start brains</li>
+          <li>An <code>evolve</code> skill (recommended weekly) that consolidates entities, reflects on beliefs, and promotes top beliefs to Persona</li>
           <li>An auditable evolution log at <code>~/.local/state/remember/evolution.log</code></li>
         </ul>
 

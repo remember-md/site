@@ -58,12 +58,20 @@ const faqs = [
     a: "Yes. Add a REMEMBER.md file to any project to control capture rules, routing, templates, language preferences, and promotion thresholds. Remember supports cascading configuration: global rules in ~/remember/REMEMBER.md and project-specific overrides in your repo's REMEMBER.md.",
   },
   {
-    q: "What does /remember:evolve do?",
-    a: "Three phases per run. (1) Consolidate: re-synthesize entity profiles in People/Projects/Areas from accumulated mentions. (2) Reflect: re-score belief confidence based on evidence vs counter-evidence and update the freshness trend (stable / strengthening / weakening / stale / contradicted). (3) Promote: pin the top beliefs to Persona.md ## Top Beliefs based on configurable thresholds (default conf ≥ 0.85, sources ≥ 5). Phase 3 runs deterministically — no LLM cost — so you can cron it freely. Run /loop 7d /remember:evolve to schedule weekly.",
+    q: "How does the brain evolve?",
+    a: "Two layers. The always-on layer runs at capture time — every 'remember this:' triggers auto-promote (deterministic, zero LLM cost) so Persona.md ## Top Beliefs stays in sync without cron. Bootstrap thresholds (default conf ≥ 0.7, sources ≥ 1 while brain has fewer than 20 beliefs) make sure your very first explicit capture lands in Persona. Contradictions are detected at capture time and routed to counter_evidence with freshness flipping to 'contradicted' automatically when counter outweighs supporting evidence.",
   },
   {
-    q: "Will /remember:evolve overwrite my hand-curated Persona?",
-    a: "No. It only manages the ## Top Beliefs section by reference (wikilinks, not copies). Mission, Directives, Disposition, and Evidence Log stay in your hands. To turn off auto-promotion entirely, set 'auto_promote: false' in ~/.local/state/remember/config.json. The init skill also skips Persona.md if it already exists, so customisations are preserved across re-installs.",
+    q: "What does /remember:evolve do?",
+    a: "The periodic LLM-driven layer, recommended weekly via /loop 7d /remember:evolve. Three phases: (1) Consolidate re-synthesizes entity profiles in People/Projects/Areas from accumulated mentions. (2) Reflect re-scores belief confidence and marks freshness as stable / strengthening / weakening / stale / contradicted. (3) Promote also runs here but is usually a no-op because auto-promote already kept Top Beliefs current. Skip it indefinitely and the brain still works for capture, but entity profiles never get refreshed and beliefs never re-score against accumulated evidence.",
+  },
+  {
+    q: "Will the brain overwrite my hand-curated Persona?",
+    a: "No. The plugin only manages the ## Top Beliefs section by reference (wikilinks, not copies). Mission, Directives, and Evidence Log stay in your hands. To turn off auto-promotion entirely, set 'auto_promote: false' in ~/.local/state/remember/config.json. The init skill also skips Persona.md if it already exists, so customisations are preserved across re-installs.",
+  },
+  {
+    q: "How does it know when I want something captured?",
+    a: "Two paths. Explicit: say 'remember this: ...' (or 'save this', 'brain dump', 'note to self', etc.) and the plugin captures verbatim. Passive: a session-start instruction asks the AI to detect — semantically, in any language — when you reveal a stable preference, decision, or recurring pattern, and to suggest 'remember this: ...' once per topic. The AI never auto-saves; you confirm with the next message. Disable with passive_nudge: false in config if you want capture to be 100% manual.",
   },
   {
     q: "What's the epistemic schema?",
