@@ -8,13 +8,13 @@ const tabs = [
   {
     id: "claude-code",
     label: "Claude Code",
-    code: `# Add the marketplace
-/plugin marketplace add remember-md/marketplace
+    code: `# Add the marketplace (run in your terminal, not in Claude Code)
+claude plugin marketplace add remember-md/marketplace
 
-# Install the plugin
-/plugin install remember
+# Install the plugin — the @remember-md qualifier is required
+claude plugin install remember@remember-md
 
-# Initialize your brain
+# Then start Claude Code and initialize your brain
 /remember:init`,
   },
   {

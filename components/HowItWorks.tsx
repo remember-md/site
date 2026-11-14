@@ -13,8 +13,8 @@ const steps = [
     code: `# OpenClaw:
 openclaw plugins install @remember-md/remember
 
-# Claude Code:
-/plugin install remember
+# Claude Code (terminal, not the /plugin command):
+claude plugin install remember@remember-md
 
 # Initialize your brain:
 /remember:init`,

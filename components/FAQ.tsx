@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "How do I install Remember on Claude Code?",
-    a: "Run '/plugin marketplace add remember-md/marketplace' followed by '/plugin install remember' in Claude Code, then run /remember:init. The plugin uses Claude Code hooks to load your Persona at session start and inject brain context when you say 'remember this'. Same second brain, same knowledge base.",
+    a: "From your terminal run 'claude plugin marketplace add remember-md/marketplace' followed by 'claude plugin install remember@remember-md', then start Claude Code and run /remember:init. Use the terminal commands, not the /plugin slash command \u2014 an unrelated plugin is also named 'remember' in the default marketplace, and the slash command ignores the @remember-md qualifier and installs the wrong one. If you already got the wrong one, remove it with 'claude plugin uninstall remember@claude-plugins-official'. The plugin uses Claude Code hooks to load your Persona at session start and inject brain context when you say 'remember this'. Same second brain, same knowledge base.",
   },
   {
     q: "Can Remember process old sessions?",
